@@ -13,63 +13,71 @@ class Site < ActiveRecord::Base
 
   	sites.each do |site|
 
-      begin
-      		puts "=====" + site.name + "=====" + site.read_url
-      		feed = Site.read_rss(site.read_url)
-      		if feed == nil
-      			puts "rss is nil"
-      			next
-      		end
-
-    	  	last_pub_date = nil
-    	  	feed.items.reverse_each do |item|
-
-        	  	# 当前文章的发表时间
-        	  	pubDate = item.pubDate.strftime("%Y%m%d%H%M%S")
-        			if site.last_pub_date && pubDate <= site.last_pub_date 
-        				#puts "continue";
-        				next
-        			end
-
-        			#author = Author.find_by_name(item.author)
-        			## TODO 若是author = nil 则 save一个
-        			#if author == nil
-        			#	author = Author.create_by_name(item.author)
-        			#end
-
-        			retMap = {}
-        			## 根据读取类型 进行适配
-        			if site.read_type == 'RSS_summary'
-      	  			retMap = Site.read_html(site, item.link)
-
-      	  		elsif site.read_type == 'RSS_content'
-      	  			#puts "RSS_content"
-      	  			# do nothing
-      	  			
-      	  		elsif site.read_type == 'html'
-      	  			
-      	  		end
-
-        			source = Source.create_wait_audit_source(site, item, retMap["content"])
-        			puts source.title + "--" + source.post_url
-              if last_pub_date == nil || pubDate > last_pub_date
-        			   last_pub_date = pubDate 
-              end
-          end
-
-      rescue StandardError => e
-
-        puts "===== EXCEPTION ====="+e.inspect
-      end 
-
-  		if last_pub_date
-  			site.last_pub_date = last_pub_date
-  			site.save
-  		end
+      Site.read_one_site(site)
 
   	end
 
   end
+
+  def self.read_one_site(site)
+    begin
+      puts "=====" + site.name + "=====" + site.read_url
+      feed = Site.read_rss(site.read_url)
+      if feed == nil
+        puts "rss is nil"
+        return 
+      end
+
+      last_pub_date = nil
+      feed.items.reverse_each do |item|
+        
+          # 当前文章的发表时间
+          pubDate = item.pubDate.strftime("%Y%m%d%H%M%S")
+          if site.last_pub_date && pubDate <= site.last_pub_date 
+            #puts "continue";
+            return
+          end
+
+          retMap = {}
+          ## 根据读取类型 进行适配
+          if site.read_type == 'RSS_summary'
+            retMap = Site.read_html(site, item.link)
+          elsif site.read_type == 'RSS_content'
+          end
+
+          source = Source.create_wait_audit_source(site, item, retMap["content"])
+          puts source.title + "--" + source.post_url
+          if last_pub_date == nil || pubDate > last_pub_date
+             last_pub_date = pubDate 
+          end
+      end
+
+    rescue StandardError => e
+
+      puts "===== EXCEPTION ====="+e.inspect
+    end 
+
+    if last_pub_date
+      site.last_pub_date = last_pub_date
+      site.save
+    end
+    
+  end
+
+
+  def self.read_one_link(site_id, link)
+    site = Site.find(site_id)
+    if site == nil
+      puts "site is nil"
+      return
+    end
+
+    retMap = Site.read_html(site, link)
+    #### ?????????????有问题
+    source = Source.create_wait_audit_source(site, item, retMap["content"])
+
+  end
+
 
   # 直接根据link读取html -> 根据定义的tag读取正文和作者名
   def self.read_html(site, link)

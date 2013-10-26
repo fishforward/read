@@ -1,40 +1,59 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <b>Name:</b>
-  <%= @site.name %>
-</p>
+  <div class="offset2">
+    <br><br><br>
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Status:</b>
-  <%= @site.status %>
-</p>
+  <p>
+    <span class="span2">Name:</span>
+    <%= @site.name %>
+  </p>
 
-<p>
-  <b>Url:</b>
-  <%= @site.url %>
-</p>
+  <p>
+    <span class="span2">Author:</span>
+    <%= @site.author %>
+  </p>
 
-<p>
-  <b>Auto read:</b>
-  <%= @site.auto_read %>
-</p>
+  <p>
+    <span class="span2">Status:</span>
+    <%= @site.status %>
+  </p>
 
-<p>
-  <b>Read type:</b>
-  <%= @site.read_type %>
-</p>
+  <p>
+    <span class="span2">Url:</span>
+    <%= @site.url %>
+  </p>
 
-<p>
-  <b>Name tag:</b>
-  <%= @site.name_tag %>
-</p>
+  <p>
+    <span class="span2">read_url:</span>
+    <%= @site.read_url %>
+  </p>
 
-<p>
-  <b>Context tag:</b>
-  <%= @site.content_tag %>
-</p>
+  <p>
+    <span class="span2">Auto read:</span>
+    <%= @site.auto_read %>
+  </p>
+
+  <p>
+    <span class="span2">Read type:</span>
+    <%= @site.read_type %>
+  </p>
+
+  <p>
+    <span class="span2">Last_pub_date:</span>
+    <%= @site.last_pub_date %>
+  </p>
+
+  <p>
+    <span class="span2">Name tag:</span>
+    <%= @site.name_tag %>
+  </p>
+
+  <p>
+    <span class="span2">Context tag:</span>
+    <%= @site.content_tag %>
+  </p>
 
 
-<%= link_to 'Edit', edit_site_path(@site) %> |
-<%= link_to 'Back', sites_path %>
+  <%= link_to 'Edit', edit_site_path(@site) %> |
+  <%= link_to 'Back', sites_path %>
+  </div>

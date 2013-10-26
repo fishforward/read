@@ -27,6 +27,8 @@ Weixintui::Application.routes.draw do
   match 'subjects' => 'tag#subjects'
   match '/' => "posts#index"
 
+  match '/sites/read/:id' => 'sites#read'
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -86,6 +88,8 @@ Weixintui::Application.routes.draw do
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id))(.:format)'
 
-  ## 错误处理
-  match '*path' => proc { |env| Rails.env.development? ? (raise ActionController::RoutingError, %{No route matches "#{env["PATH_INFO"]}"}) : ApplicationController.action(:render_not_found).call(env) }
+  ## 错误处理 - 区分dev 和 pro
+  #match '*path' => proc { |env| Rails.env.development? ? (raise ActionController::RoutingError, %{No route matches "#{env["PATH_INFO"]}"}) : ApplicationController.action(:render_not_found).call(env) }
+  match '*path' => proc { |env| ApplicationController.action(:render_not_found).call(env) }
+
 end

@@ -229,11 +229,16 @@
 				var re = $("#replaced").val()
 				var str = $("#source_content").val()
 
+				alert(re)
+				alert(str)
+
 				while(str.indexOf(re) != -1){
+					alert($("#replace").val())
 					str = str.replace(re, $("#replace").val())
-					$("#source_content").html(str)
+					$("#source_content").val(str)
 				}
 			});
+
 		});
 	})
 	</script>	

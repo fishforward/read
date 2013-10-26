@@ -1,16 +1,20 @@
-<h1>Listing sites</h1>
+<div class="">
+<br><br><br>
+<h1>来源列表</h1>
 
 <table class="table table-striped table-bordered">
   <tr>
-    <th>Name</th>
-    <th>Author</th>
-    <th>Status</th>
+    <th>名称</th>
+    <th>作者</th>
+    <th>状态</th>
     <th>Url</th>
-    <th>Auto read</th>
-    <th>Read type</th>
-    <th>Name tag</th>
-    <th>Content tag</th>
-    <th>last_pub_date</th>
+    <th>rss_url</th>
+
+    <th>Auto</th>
+    <th>读取类型</th>
+    <th>名称tag</th>
+    <th>正文tag</th>
+    <th>最后读取时间</th>
     <th></th>
     <th></th>
     <th></th>
@@ -22,12 +26,16 @@
     <td><%= site.author %></td>
     <td><%= site.status %></td>
     <td><%= site.url %></td>
+    <td><%= site.read_url %></td>
+
     <td><%= site.auto_read %></td>
     <td><%= site.read_type %></td>
     <td><%= site.name_tag %></td>
     <td><%= site.content_tag %></td>
     <td><%= site.last_pub_date %></td>
-    <td><%= link_to 'Show', site %></td>
+    <td><%= link_to 'Show', site %>
+    <%= link_to 'Read', '/sites/read/'+site.id.to_s %></td>
+
     <td><%= link_to 'Edit', edit_site_path(site) %></td>
     <td><%= link_to 'Destroy', site, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
@@ -37,3 +45,4 @@
 <br />
 
 <%= link_to 'New Site', new_site_path %>
+</div>

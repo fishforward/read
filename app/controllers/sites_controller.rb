@@ -1,4 +1,20 @@
 class SitesController < ApplicationController
+
+  before_filter :authenticate_user!
+
+
+  ##read
+  # GET /sites/read/1
+  def read
+    @site = Site.find(params[:id])
+    Site.read_one_site(@site)
+
+    respond_to do |format|
+      format.html { redirect_to '/wait_audit' }
+      format.json { head :no_content }
+    end
+  end
+
   # GET /sites
   # GET /sites.json
   def index

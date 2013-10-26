@@ -4,11 +4,17 @@ class SourcesController < ApplicationController
 
   #显示待审核列表
   def wait_audit
-    @sources = Source.where(:status=>'W').paginate(:page => params[:page], :per_page => 20, :order => 'updated_at desc')
+    @name_selector = params[:name_selector]
+    @title_text = params[:title_text]
+
+    scope = Source.where(:status=>'W').paginate(:page => params[:page], :per_page => 20, :order => 'updated_at desc')
+    scope = scope.where(:site_id => @name_selector ) if @name_selector && !@name_selector.blank?
+    scope = scope.where("title like '%"+@title_text+"%'") if @title_text && !@title_text.blank?
+    @sources = scope
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @sources }
+      format.json { render json: @sources}
     end
   end
 
@@ -60,6 +66,7 @@ class SourcesController < ApplicationController
 
     chomp = /[\r\n]+/
     urls_str = params["urls"]
+    site_id = params["site_id"]
 
     if urls_str
 
@@ -68,7 +75,7 @@ class SourcesController < ApplicationController
       if urls
         urls.each do |url|
           puts url
-          Post.fetch_by_url(url)
+          Site.read_one_link(site_id, url)
         end 
       end
 
@@ -91,6 +98,8 @@ class SourcesController < ApplicationController
     chomp = /[\r\n]+/
     urls_str = params["urls"]
 
+    site_id = 1#params["site_id"]
+
     if urls_str
 
       urls = urls_str.strip.split(chomp)
@@ -98,7 +107,7 @@ class SourcesController < ApplicationController
       if urls
         urls.each do |url|
           puts url
-          Post.fetch_by_url(url)
+          Site.read_one_link(site_id, url)
         end 
       end
 
@@ -127,6 +136,9 @@ class SourcesController < ApplicationController
     @post.pic_url = @source.pic_url
     @post.post_url = @source.post_url
     @post.status = 'Y'  ## 审核通过
+
+    puts @post.content
+    puts @post.text_content
 
     #tags
     tags = params[:tags]

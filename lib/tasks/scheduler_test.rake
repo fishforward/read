@@ -3,7 +3,7 @@ namespace :scheduler_test do
 	desc "test"
 	task :test_read_rss => :environment do
 	    puts "test_read_rss start..."
-	    Site.test_read_rss('http://feed.feedsky.com/chuangyihuabao')
+	    Site.test_read_rss('http://meiwenrishang.com/rss')
 	    puts "done."
 	end
 

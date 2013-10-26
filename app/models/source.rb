@@ -10,31 +10,30 @@ class Source < ActiveRecord::Base
   	##TODO
   	# 这里看是否需要判断下url不能重复  或者 表上加唯一约束
 
+    # 记录保存 
+  	source = Source.new
+  	source.site_id = site.id
+  	source.site_name = site.name
+  	#source.author_id = 
+  	source.author_name = site.author
 
-  	# 记录保存 
-	source = Source.new
-	source.site_id = site.id
-	source.site_name = site.name
-	#source.author_id = 
-	source.author_name = site.author
+  	source.post_date = item.pubDate.strftime("%F")
+  	source.title = item.title
 
-	source.post_date = item.pubDate.strftime("%F")
-	source.title = item.title
+  	if content
+  		source.content = content
+  	else
+  		source.content = item.description
+  	end
+  	source.content = Source.del_css(source.content)
+  	source.content = Source.upload(source.content)
 
-	if content
-		source.content = content
-	else
-		source.content = item.description
-	end
-	source.content = Source.del_css(source.content)
-	source.content = Source.upload(source.content)
-
-	source.text_content = ActionController::Base.helpers.strip_tags(source.content)
-	#source.pic_url
-	source.post_url = item.link
-	source.status = 'W'
-	source.save
-	return source
+  	source.text_content = ActionController::Base.helpers.strip_tags(source.content)
+  	#source.pic_url
+  	source.post_url = item.link
+  	source.status = 'W'
+  	source.save
+  	return source
   end
 
   def self.del_css(content)
@@ -46,14 +45,13 @@ class Source < ActiveRecord::Base
 	  		h[:style]=""
 	  	end
   	end
-  	return html.css("body div").to_s
+  	return html.css("body").to_s
   end
 
 
   def self.upload(content)
 
   	html = Nokogiri::HTML(content)
-  	#puts html.inspect
 
   	#图片上传
 
