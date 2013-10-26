@@ -1,6 +1,6 @@
 #source 'https://rubygems.org'
-#source 'http://ruby.taobao.org/'
 source 'http://mirrors.tuna.tsinghua.edu.cn/rubygems/'
+source 'http://ruby.taobao.org/'
 
 gem 'rails', '3.2.3.rc2'
 
@@ -9,12 +9,12 @@ gem 'rails', '3.2.3.rc2'
 
 group :development, :test do
   #gem 'sqlite3'
-  #gem 'pg'
+  gem 'pg'
 end
 
 group :production do
 #  开发环境注释掉
-  gem 'mysql2'
+  #gem 'mysql2'
 end
 
 #monitor
