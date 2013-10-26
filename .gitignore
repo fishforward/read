@@ -14,5 +14,5 @@
 /log/*.log
 /tmp
 
-Gemfile
-/config/database.yml
+#Gemfile
+#/config/database.yml
