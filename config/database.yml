@@ -19,36 +19,40 @@
 #  timeout: 5000
 
 common: &common
-  adapter: postgresql
-  username: postgres
-  password: 123 # from psql setup, see Postgresql
+  #adapter: postgresql
+  #username: postgres
+  #password: 123 # from psql setup, see Postgresql
 
-development:
   #开发环境
   #<<: *common
   #database: postgre_weixintui
+development:
+  adapter: sqlite3
+  database: db/development.sqlite3
+  pool: 5
+  timeout: 5000
 
   #线上
-  adapter: mysql2
-  encoding: utf8
-  database: weixintui_db
-  pool: 5
-  username: root
-  password: "878902"
-  host: localhost
+  #adapter: mysql2
+  #encoding: utf8
+  #database: weixintui_db
+  #pool: 5
+  #username: root
+  #password: "878902"
+  #host: localhost
 
-test:
-  <<: *common
-  database: postgre_weixintui
+#test:
+#  <<: *common
+#  database: postgre_weixintui
 
-production:
-  adapter: mysql2
-  encoding: utf8
-  database: weixintui_db
-  pool: 5
-  username: root
-  password: "878902"
-  host: localhost
+#production:
+#  adapter: mysql2
+#  encoding: utf8
+#  database: weixintui_db
+#  pool: 5
+#  username: root
+#  password: "878902"
+#  host: localhost
   #adapter: postgresql
   #username: postgres
   #password: 123 # from psql setup, see Postgresql
