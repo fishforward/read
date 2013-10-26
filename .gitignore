@@ -12,7 +12,11 @@
 
 # Ignore all logfiles and tempfiles.
 /log/*.log
+<<<<<<< HEAD
 /tmp
 
 #Gemfile
 #/config/database.yml
+=======
+/tmp
+>>>>>>> 79c0246eb910e424bd0cd519b68eecae57ade28d
