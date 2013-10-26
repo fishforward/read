@@ -1,0 +1,235 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<!-- start: Meta -->
+	<meta charset="utf-8">
+	<title>慢时光</title> 
+	<meta content="慢时光, 阅读, 微信" name="description">
+	<meta content="slowly, time, 慢时光, 阅读, 微信" name="keywords">
+	<meta name="baidu-site-verification" content="hA3ilgAySHrNywPb" />
+	<!-- end: Meta -->
+	
+	<!-- start: Mobile Specific -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+	<!-- end: Mobile Specific -->
+
+    <!-- start: CSS -->
+    <%= stylesheet_link_tag "bootstrap.css","bootstrap-responsive.css","style.css","style-color-SteelBlue.css","canvas-menu.css", "jquery.ptags.default.css" %>
+
+	<!-- end: CSS -->
+
+	<noscript>
+		<link rel="stylesheet" type="text/css" href="css/nojs.css" />
+		 <%= stylesheet_link_tag "nojs.css" %>
+	</noscript>	
+
+	<!-- start: favicon -->
+	<link rel="shortcut icon" type="image/x-icon" href="/assets/logo.png">
+	<!-- end: favicon -->
+
+    <!--[if IE 9]>
+		<style></style>
+	<![endif]-->    
+    <!--[if IE 8]>
+		<style>.nav-btn{display:none}.close-btn{display:none}.home-marker {top: 74px;}</style>
+	<![endif]-->
+
+	<!-- 百度统计 -->
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?38a8c84f486bac2fc11c0b36053a40a7";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+
+</head>
+
+<body>
+
+<div id="outer-wrap">
+	<div id="inner-wrap">
+
+		<!--start: sidebar -->
+		<div class="span2">
+			<div id="top" class="sidebar-style sidebar-nav sidebar-nav-fixed">
+				<div class="block logo">
+					<!-- Logo --><a class="block-title" href="/posts">慢时光 <i class="icon-plus-sign"></i></a>
+					<a class="nav-btn" data-icon="icon-lightbulb" id="nav-open-btn" href="#nav"><i class="icon-reorder icon-2x"></i></a>
+				</div>
+				
+				<div class="baseline-border">
+					<div class="baseline">
+						<p>不为任何事所累  </p>
+						<p>享受这一刻慢时光. </p>
+					</div>
+				</div>
+
+			    <nav id="nav" role="navigation">
+			        <div class="block">
+						<ul>
+							<!--<li class="is-active"><a href="/" class="home">首页</a></li>-->
+							<li class="is-active"><a href="/posts" class="home">24小时更新</a></li>
+
+							<li><a href="/subject/主题馆" class="about">主题馆</a></li>
+							<li><a href="/subject/本周关注" class="about">本周关注</a></li>
+
+
+							<!--
+							<li><a href="/subject/推荐给你" class="about">-推荐给你</a></li>
+							<li><a href="/subject/慢读" class="services">-慢读</a></li>
+							<li><a href="/subject/在路上" class="services">-在路上</a></li>
+							<li><a href="/subject/恋物" class="services">-恋物</a></li>
+							-->
+						</ul>
+						<!--
+						<a class="close-btn" id="nav-close-btn" href="#top"><i class="icon-remove icon-2x icon-border"></i></a>
+						-->
+					</div>	
+				</nav>	
+
+				<div class="baseline-border">
+
+					<!--
+					<div class="baseline">
+						<div class="tags_menu clearfix">
+							<br>
+							<span class="is-active">主题馆</span>
+				        	<ul>
+				        		<li><a href="/subject/推荐给你" class="about">-推荐给你</a></li>
+								<li><a href="/subject/慢读" class="services">-慢读</a></li>
+								<li><a href="/subject/在路上" class="services">-在路上</a></li>
+								<li><a href="/subject/恋物" class="services">-恋物</a></li>
+				        	</ul>
+				        </div>
+					</div>
+					-->
+				
+				 	<!--
+					<div class="baseline">
+						<div class="tags_menu">
+							<br>
+							<span class="is-active">#特别专题#</span>
+				        	<ul>
+				        		<li><a href="/subject/雅安地震"><i class="icon-tag"></i> 雅安地震</a></li>
+				        	</ul>
+				        </div>
+					</div>
+					-->
+				</div>
+			</div>
+		</div><!--end: sidebar -->
+
+		<!--start: content -->
+		<div class="content span9">
+
+				<%= yield %>   
+
+		</div><!--end: content --> 
+
+		<!-- start: back to top
+		<div class="up">
+			<a href="#" class="btn btn-large btn-orange btn-red-pastel btn-steelblue btn-darkslategrey">Back to top <i class="icon-chevron-up"></i></a>	
+		</div>
+		 -->
+		<!-- end: back to top -->
+
+	</div> <!--end: inner-wrap -->
+</div> <!--end: outer-wrap -->
+
+<div class="row" style="width:100%;clear:both;"> </div>
+
+<!--start: footer -->
+<div class="footer">
+	<div class="span9">
+
+		@vforward 2013 
+
+	</div>	
+</div><!--end: content --> 
+
+	<!-- start: script -->
+	<%= javascript_include_tag "jquery.js","bootstrap.min.js","modernizr.js","jquery.lazyload.js","responsiveslides.min.js","isotope.js","knob.js","jquery.cookie.js", "jquery.ptags.js" %>
+	<!-- end: script -->
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->	
+
+	<script type="text/javascript">
+	 
+	// 全部显示 - 先不打开
+	$(function(){
+
+		// 延时加载 - 淡入效果
+		/*$("img").lazyload({
+	    	effect       : "fadeIn"
+	 	});*/
+
+		// 图片延时加载
+	    $(".blog-info img").lazyload({
+	        //event : "sporty",
+	        effect : "fadeIn"
+	    });
+	    $(".blog-img-big img").lazyload({
+	        //event : "sporty",
+	        effect : "fadeIn"
+	    });
+
+		// 标签js
+		$("#tags").ptags();
+		$("#subjects").ptags();
+
+		$(document).ready(function() {
+
+			$(".showall").click(function(){
+				$(this).prev().prev().show()
+				$(this).prev().hide()
+				$(this).hide()
+				$(this).next().show();
+			});
+			$(".hideall").click(function(){
+				$(this).prev().prev().prev().hide()
+				$(this).prev().prev().show()
+				$(this).prev().show()
+				$(this).hide();
+			});
+
+			//showandhide(".text_str","500");
+			function showandhide(sid,length) {
+				//显示或者隐藏教师机构部分信息
+				$(sid).each(function(){
+					t = $(this)
+					//t.html("xxxxxxxx")
+					//alert(t.text())
+					var str = t.html();
+					strlen = str.length;
+					//alert(strlen)
+					if(strlen > length) {
+						newstr = str.slice(0,length);
+						//alert(str)
+						//alert(newstr)
+						$(this).html(newstr + "...<a class='showall' href='javascript:void(0)'> 显示全部</a>");
+						$(".showall").die().live("click",function(){
+							t.html('')
+							t.html(str + " <a class='hideall' href='javascript:void(0)'> 隐藏部分</a>");
+						});
+						$(".hideall").die().live("click",function(){
+							t.html('')
+							t.html(newstr + "...<a class='showall' href='javascript:void(0)'>显示全部</a>");
+						});
+					}
+				});
+			}
+		});
+	})
+	</script>	
+
+	</body>
+
+</html>

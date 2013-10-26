@@ -1,0 +1,78 @@
+<div id="respond" class="offset1">
+<% if @post %>
+<%= form_for(@post, :html => { :class => "", :id => "commentform" }) do |f| %>
+  <% if @post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% @post.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p class="field">
+    <%= f.label :author_id %><br />
+    <%= @post.site_name %>
+  </p>
+  <p class="field">
+    <%= f.label :post_date %><br />
+    <%= f.text_field :post_date %>
+  </p>
+  <p class="field">
+    <%= f.label :title %><br />
+    <a href=<%= @post.post_url %> TARGET="_blank">原文</a>
+    <%= f.text_field :title %>
+  </p>
+
+  <p class="field">
+    
+    <label for="">正文</label><br />
+    <!--<%= f.text_area :content, :cols => 200, :rows => 100 %>-->
+    <textarea id="post_content" name="post[content]" rows="300" style="height:500px;">
+      <%= @post.content %>
+    </textarea>
+  </p>
+
+  <p class="field">
+    <label for="">正文(纯文本)</label><br />
+    <%= f.text_area :text_content %>
+  </p>
+
+  <p class="field">
+    <label class="control-label" for="inputTags">标签</label>
+    <%= @post.tag_list %><br>
+    <input type="text" id="tags" name="tags" value="" />
+  </p>
+  <p class="field">
+    <label class="control-label" for="inputTags">主题</label>
+    <span class="btn source" onclick="$('#subjects').ptags_add(['慢读']);">慢读</span>
+    <span class="btn source" onclick="$('#subjects').ptags_add(['推荐给你']);">推荐给你</span>
+    <span class="btn source" onclick="$('#subjects').ptags_add(['在路上']);">在路上</span>
+    <span class="btn source" onclick="$('#subjects').ptags_add(['恋物']);">恋物</span>
+    <br>
+    <%= @post.subject_list %><br>
+    <input type="text" id="subjects" name="subjects" value="" />
+  </p>
+  <p class="field">
+    <%= f.label :pic_url %><br />
+    <%= f.text_field :pic_url %>
+  </p>
+  <p class="field">
+    <%= f.label :post_url %><br />
+    <textarea id="post_url" name="post[post_url]" rows="300" style="height:100px;">
+      <%= @post.post_url %>
+    </textarea>
+  </p>
+  <p class="field">
+    <%= f.label :status %><br />
+    <%= f.text_field :status %>
+  </p>
+  <p class="form-submit">
+    <%= f.submit %>
+  </p>
+<% end %>
+<% end %>
+</div>

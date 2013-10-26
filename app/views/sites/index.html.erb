@@ -1,0 +1,39 @@
+<h1>Listing sites</h1>
+
+<table class="table table-striped table-bordered">
+  <tr>
+    <th>Name</th>
+    <th>Author</th>
+    <th>Status</th>
+    <th>Url</th>
+    <th>Auto read</th>
+    <th>Read type</th>
+    <th>Name tag</th>
+    <th>Content tag</th>
+    <th>last_pub_date</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @sites.each do |site| %>
+  <tr>
+    <td><%= site.name %></td>
+    <td><%= site.author %></td>
+    <td><%= site.status %></td>
+    <td><%= site.url %></td>
+    <td><%= site.auto_read %></td>
+    <td><%= site.read_type %></td>
+    <td><%= site.name_tag %></td>
+    <td><%= site.content_tag %></td>
+    <td><%= site.last_pub_date %></td>
+    <td><%= link_to 'Show', site %></td>
+    <td><%= link_to 'Edit', edit_site_path(site) %></td>
+    <td><%= link_to 'Destroy', site, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Site', new_site_path %>

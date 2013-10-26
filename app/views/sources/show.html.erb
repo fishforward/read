@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Author:</b>
+  <%= @source.author_id %>
+</p>
+
+<p>
+  <b>Post date:</b>
+  <%= @source.post_date %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%= @source.title %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%=raw @source.content %>
+</p>
+
+<p>
+  <b>Text content:</b>
+  <%= @source.text_content %>
+</p>
+
+<p>
+  <b>Pic url:</b>
+  <%= @source.pic_url %>
+</p>
+
+<p>
+  <b>Post url:</b>
+  <%= @source.post_url %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%= @source.status %>
+</p>
+
+
+<%= link_to 'Edit', edit_source_path(@source) %> |
+<%= link_to 'Back', sources_path %>

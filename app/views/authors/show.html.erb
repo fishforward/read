@@ -1,0 +1,9 @@
+
+
+<!-- Start Section Title -->
+<section id="title-page">
+	<h2>作者：<%= @author.name%></h2>
+    <span class="arrow"></span>
+</section>
+<!-- End Section Ttile -->
+<%= render :partial => 'shared/post_list' , :locals => { :posts => @posts } %>

@@ -1,0 +1,53 @@
+<!-- Start Intro Box -->
+<section id="intro-box" class="single-post">
+  <div class="container">
+      <div class="row">
+          <div class="span12">
+              <h2 class="entry-title">
+              	导入入口
+              </h2>
+                <span class="arrow"></span>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Intro Box -->
+
+<div id="content">
+
+	<div>
+		<% if @source %>
+			成功
+		<% end %>
+	</div>
+	<span class="form_option">
+    将
+    <a href="javascript:function%20csme(){location.href='http://weixintui.herokuapp.com/sources/new?urls='+encodeURIComponent(location.href)+'&title='+encodeURIComponent(document.title)+'&time='+encodeURIComponent(document.getElementById('post-date').innerHTML)+'&source='+encodeURIComponent(document.getElementById('txt-sourceurl').innerHTML)+'&digest='+encodeURIComponent(document.getElementById('txt-desc').innerHTML)+'';}csme();void(0);">+慢时光</a>
+    保存到书签栏，在文章页点击可传送文章
+    </span>
+
+	<%= form_tag('/sources', :class => "form-horizontal") do %>
+
+		<% if flash.now[:message] %>  
+		    <div class="alert alert-error">
+		    	<button type="button" class="close" data-dismiss="alert">×</button>
+		    	<%= flash[:message] %>
+		    </div> 
+		<% end %>
+
+	  <div class="control-group">
+	    <label class="control-label" for="inputTitle">URLs</label>
+	    <div class="controls">
+	    	<textarea class="span5" id="urls" name="urls" rows="20" placeholder="" value=<%= @urls %>>
+	    		<%= @urls %>
+	    	</textarea>
+	    </div>
+	  </div>
+
+	  <div class="control-group">
+	    <div class="controls">
+	      <button type="submit" class="btn btn-info">保存</button>
+	    </div>
+	  </div>
+	<% end %>  
+</div>

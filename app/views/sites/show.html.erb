@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @site.name %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%= @site.status %>
+</p>
+
+<p>
+  <b>Url:</b>
+  <%= @site.url %>
+</p>
+
+<p>
+  <b>Auto read:</b>
+  <%= @site.auto_read %>
+</p>
+
+<p>
+  <b>Read type:</b>
+  <%= @site.read_type %>
+</p>
+
+<p>
+  <b>Name tag:</b>
+  <%= @site.name_tag %>
+</p>
+
+<p>
+  <b>Context tag:</b>
+  <%= @site.content_tag %>
+</p>
+
+
+<%= link_to 'Edit', edit_site_path(@site) %> |
+<%= link_to 'Back', sites_path %>

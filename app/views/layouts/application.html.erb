@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if (IE 9)]><html class="no-js ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en-US"> <!--<![endif]-->
+<head>
+
+	<!-- Meta Tags -->
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+	<title>慢时光 - 精选阅读</title>   
+	<meta content="慢时光, 阅读,精选阅读, 微信" name="description">
+	<meta content="slowly, time, 慢时光, 阅读, 微信, 公众平台, 公众账号" name="keywords">
+
+	<!-- Mobile Specifics -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="HandheldFriendly" content="true"/>
+	<meta name="MobileOptimized" content="320"/>   
+
+	<!-- Mobile Internet Explorer ClearType Technology -->
+	<!--[if IEMobile]>  <meta http-equiv="cleartype" content="on">  <![endif]-->
+
+	<!-- start: CSS -->
+	<%= stylesheet_link_tag "bootstrap.min.css","settings.css","main.css","jquery.fancybox.css","fonts.css", "shortcodes.css","responsive.css","custom.css","jquery.ptags.default.css" %>
+
+	<!-- Google Font -->
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+
+	<!-- Fav Icon -->
+	<link rel="shortcut icon" href="#">
+	<link rel="shortcut icon" type="image/x-icon" href="/assets/slowertime.jpg">
+
+	<link rel="apple-touch-icon" href="#">
+	<link rel="apple-touch-icon" sizes="114x114" href="#">
+	<link rel="apple-touch-icon" sizes="72x72" href="#">
+	<link rel="apple-touch-icon" sizes="144x144" href="#">
+
+	<!-- Modernizr 
+	<script src="js/modernizr.js"></script> -->
+
+	<!-- 百度统计 -->
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?38a8c84f486bac2fc11c0b36053a40a7";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+
+</head>
+
+<body>
+
+	<!-- Header -->
+	<header>
+		<div class="container">
+	    	<div class="row">
+	        	<div class="span2 offset1">
+	            	<div id="logo">
+	        			<a href="/" title="SlowerTime">慢时光</a>
+	        		</div>
+	            </div>
+	            
+	            <div class="span9">
+	            	<!-- Mobile Menu -->
+	            	<a id="mobile-nav" class="menu-nav" href="#menu-nav"><span class="menu-icon">=</span></a>
+	                
+	                <!-- Standard Menu -->	
+	        		<nav id="menu">
+	                    <ul id="menu-nav">
+	                    	<li class=<%= 'active' if params[:controller] == 'posts' && params[:action] =='index' %>>
+	                    		<a href="/">首页</a>
+	                    	</li>
+	                        <li class=<%= 'active' if params[:controller] == 'tag' && (params[:action] =='subjects' || params[:action] =='subject') %>>
+	                        	<a href="/subjects">主题馆</a>
+	                        </li>
+
+	                        
+	                        <li class=<%= 'active' if params[:controller] == 'home' && params[:action] =='about' %>>
+	                        	<a href="/about">关于</a>
+	                        </li>
+	                        <!--
+	                        <li><a href="/">生活大白痴</a>-->
+	                        	<!--
+	                        	<ul class="sub-menu">
+	                            	<li><a href="portfolio-2-clm.html">2 Columns</a></li>
+	                                <li><a href="portfolio-3-clm.html">3 Columns</a></li>
+	                                <li><a href="portfolio.html">4 Columns</a></li>
+	                                <li><a href="single-project.html">Single Project</a></li>
+	                            </ul>
+	                        	-->
+	                        </li>
+	                       
+	                    </ul>
+	                </nav>
+	        	</div>
+	        </div>
+	    </div>
+	</header>
+	<!-- End Header -->
+
+	<%= yield %>
+
+
+	<!-- Start Footer 
+	<footer class="footer-widgets">
+		<span class="arrow-down"></span>
+		<div class="container">
+	    	<div class="row">
+	        	<div class="span4 offset8 widget">
+	            	<div class="about-widget">
+	                	<h3>联系</h3>
+	                    <address>
+	                        <strong>E-mail:</strong> <a href="#">fishgyuyi@gmail.com</a>
+	                    </address>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	</footer>
+	-->
+	<!-- End Footer -->
+
+	<!-- Start Credits -->
+	<section id="footer-credits">
+		<span class="arrow-down"></span>
+		<div class="container">
+	    	<div class="row">
+	        	<div class="span12">
+	            	<p class="credits">&copy; 2013 vforward. All rights reserved.</p>
+	            </div>
+	        </div>
+	    </div>
+	</section>
+	<!-- End Credits -->
+
+	<!-- Back To Top -->
+	<a id="back-to-top" href="#">
+		<i class="font-icon-arrow-simple-up"></i>
+	</a>
+	<!-- End Back to Top -->
+
+	<!-- start: script -->
+	<%= javascript_include_tag "modernizr.js","jquery.min.js","bootstrap.min.js","jquery.ptags.js" %>
+
+	<!-- ,"jquery.themepunch.revolution.min.js","jquery.themepunch.plugins.min.js","jquery.superfish.min.js","jquery.supersubs.min.js","jquery.isotope.js","jquery.fancybox.pack.js","jquery.fancybox-media.js", "plugins.js" ,"main.js" -->
+
+	<!-- end: script -->
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->	
+
+	<script type="text/javascript">
+	 
+	// 全部显示 - 先不打开
+	$(function(){
+
+		// 延时加载 - 淡入效果
+		/*$("img").lazyload({
+	    	effect       : "fadeIn"
+	 	});*/
+
+		// 图片延时加载
+		/*
+	    $(".blog-info img").lazyload({
+	        //event : "sporty",
+	        effect : "fadeIn"
+	    });
+	    $(".blog-img-big img").lazyload({
+	        //event : "sporty",
+	        effect : "fadeIn"
+	    });
+*/
+
+		jQuery(document).ready(function($) {
+
+
+			// 标签js
+			$("#tags").ptags();
+			$("#subjects").ptags();
+
+			// 显示全部
+			$(".showall").click(function(){
+				$(this).prev().prev().show()
+				$(this).prev().hide()
+				$(this).hide()
+				$(this).next().show();
+			});
+			$(".hideall").click(function(){
+				$(this).prev().prev().prev().hide()
+				$(this).prev().prev().show()
+				$(this).prev().show()
+				$(this).hide();
+			});
+
+			//showandhide(".text_str","500");
+			function showandhide(sid,length) {
+				//显示或者隐藏教师机构部分信息
+				$(sid).each(function(){
+					t = $(this)
+					//t.html("xxxxxxxx")
+					//alert(t.text())
+					var str = t.html();
+					strlen = str.length;
+					//alert(strlen)
+					if(strlen > length) {
+						newstr = str.slice(0,length);
+						//alert(str)
+						//alert(newstr)
+						$(this).html(newstr + "...<a class='showall' href='javascript:void(0)'> 显示全部</a>");
+						$(".showall").die().live("click",function(){
+							t.html('')
+							t.html(str + " <a class='hideall' href='javascript:void(0)'> 隐藏部分</a>");
+						});
+						$(".hideall").die().live("click",function(){
+							t.html('')
+							t.html(newstr + "...<a class='showall' href='javascript:void(0)'>显示全部</a>");
+						});
+					}
+				});
+			}
+
+			$("#content_rep").click(function() {
+				var re = $("#replaced").val()
+				var str = $("#source_content").val()
+
+				while(str.indexOf(re) != -1){
+					str = str.replace(re, $("#replace").val())
+					$("#source_content").html(str)
+				}
+			});
+		});
+	})
+	</script>	
+
+</body>
+
+</html>

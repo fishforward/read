@@ -1,0 +1,9 @@
+	
+
+	<div id="options">
+	  <ul id="filters" class="span6 offset2 tag-css option-set clearfix" data-option-key="filter">
+	    <li><a href="#filter" data-option-value="*" class="selected"><%= @name%></a></li>
+	  </ul>
+	</div>
+
+<%= render :partial => 'shared/post_list' , :locals => { :posts => @posts } %>

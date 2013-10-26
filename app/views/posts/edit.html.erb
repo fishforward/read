@@ -1,0 +1,22 @@
+<!-- Start Intro Box -->
+<section id="intro-box" class="single-post">
+  <div class="container">
+      <div class="row">
+          <div class="span12">
+              <h2 class="entry-title">
+                编辑文章
+              </h2>
+
+                <span class="arrow"></span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- End Intro Box -->
+
+<%= render 'form' %>
+
+<%= button_to "删除", post_path(@post), :confirm => "确定真的要删除吗?", :method => :delete %>  
+<%= link_to 'Show', @post %> |
+<%= link_to 'Back', posts_path %>
