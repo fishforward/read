@@ -27,19 +27,19 @@ common: &common
   #<<: *common
   #database: postgre_weixintui
 development:
-  adapter: sqlite3
-  database: db/development.sqlite3
-  pool: 5
-  timeout: 5000
+  #adapter: sqlite3
+  #database: db/development.sqlite3
+  #pool: 5
+  #timeout: 5000
 
   #线上
-  #adapter: mysql2
-  #encoding: utf8
-  #database: weixintui_db
-  #pool: 5
-  #username: root
-  #password: "878902"
-  #host: localhost
+  adapter: mysql2
+  encoding: utf8
+  database: weixintui_db
+  pool: 5
+  username: root
+  password: "878902"
+  host: localhost
 
 #test:
 #  <<: *common
