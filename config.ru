@@ -2,3 +2,5 @@
 
 require ::File.expand_path('../config/environment',  __FILE__)
 run Weixintui::Application
+
+ENV['RAILS_ENV'] = ENV['RACK_ENV']  if !ENV['RAILS_ENV'] && ENV['RACK_ENV'] 
