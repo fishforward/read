@@ -6,11 +6,14 @@ class SourcesController < ApplicationController
   def wait_audit
     @name_selector = params[:name_selector]
     @title_text = params[:title_text]
+    @page = params[:page].blank? ? 1 : params[:page]
 
-    scope = Source.where(:status=>'W').paginate(:page => params[:page], :per_page => 20, :order => 'updated_at desc')
+    scope = Source.where(:status=>'W').paginate(:page => @page, :per_page => 20, :order => 'post_date desc')
     scope = scope.where(:site_id => @name_selector ) if @name_selector && !@name_selector.blank?
     scope = scope.where("title like '%"+@title_text+"%'") if @title_text && !@title_text.blank?
     @sources = scope
+
+    puts @sources.inspect
 
     respond_to do |format|
       format.html # index.html.erb
