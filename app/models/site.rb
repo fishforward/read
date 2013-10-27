@@ -35,7 +35,7 @@ class Site < ActiveRecord::Base
           pubDate = item.pubDate.strftime("%Y%m%d%H%M%S")
           if site.last_pub_date && pubDate <= site.last_pub_date 
             #puts "continue";
-            return
+            next
           end
 
           retMap = {}

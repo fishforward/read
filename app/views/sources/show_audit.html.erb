@@ -17,7 +17,7 @@
 <div id="content">
   <div id="respond" class="offset1">
   <% if @source %>
-  <%= form_for(@source, :html => { :class => "", :id => "commentform" }) do |f| %>
+  <%= form_for(@source, url: '/sources/audit/'+@source.id.to_s, :html => { :class => "", :id => "commentform" }) do |f| %>
     <% if @source.errors.any? %>
       <div id="error_explanation">
         <h2><%= pluralize(@source.errors.count, "error") %> prohibited this source from being saved:</h2>

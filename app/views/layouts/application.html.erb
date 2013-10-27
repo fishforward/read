@@ -57,7 +57,7 @@
 	<!-- Header -->
 	<header>
 		<div class="container">
-	    	<div class="row">
+	    	<div class="row-fluid">
 	        	<div class="span2 offset1">
 	            	<div id="logo">
 	        			<a href="/" title="SlowerTime">慢时光</a>
@@ -65,11 +65,9 @@
 	            </div>
 	            
 	            <div class="span9">
-	            	<!-- Mobile Menu -->
-	            	<a id="mobile-nav" class="menu-nav" href="#menu-nav"><span class="menu-icon">=</span></a>
 	                
 	                <!-- Standard Menu -->	
-	        		<nav id="menu">
+	        		<nav id="menu" class="hidden-phone">
 	                    <ul id="menu-nav">
 	                    	<li class=<%= 'active' if params[:controller] == 'posts' && params[:action] =='index' %>>
 	                    		<a href="/">首页</a>
@@ -91,11 +89,30 @@
 	                                <li><a href="portfolio.html">4 Columns</a></li>
 	                                <li><a href="single-project.html">Single Project</a></li>
 	                            </ul>
-	                        	-->
-	                        </li>
+	                        	
+	                        </li>-->
 	                       
 	                    </ul>
 	                </nav>
+
+	               	<!-- Mobile Menu -->
+	            	<a id="mobile-nav" class="menu-nav visible-phone" href="#menu-nav">
+	            		<!--<span class="menu-icon">=</span>-->
+	            		<ul id="menu-nav">
+	                    	<li class=<%= 'active' if params[:controller] == 'posts' && params[:action] =='index' %>>
+	                    		<a href="/">首页</a>
+	                    	</li>
+	                        <li class=<%= 'active' if params[:controller] == 'tag' && (params[:action] =='subjects' || params[:action] =='subject') %>>
+	                        	<a href="/subjects">主题馆</a>
+	                        </li>
+
+	                        
+	                        <li class=<%= 'active' if params[:controller] == 'home' && params[:action] =='about' %>>
+	                        	<a href="/about">关于</a>
+	                        </li>
+	                       
+	                    </ul>
+	            	</a>
 	        	</div>
 	        </div>
 	    </div>

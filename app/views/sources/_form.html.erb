@@ -1,3 +1,4 @@
+<br><br><br>
 <%= form_for(@source) do |f| %>
   <% if @source.errors.any? %>
     <div id="error_explanation">
@@ -12,39 +13,48 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :author_id %><br />
+    <span class="span2"> site_id </span>
+    <%= f.number_field :site_id %>
+  </div>
+  <div class="field">
+    <span class="span2">site_name </span>
+    <%= f.number_field :site_name %>
+  </div>
+  <div class="field">
+    <span class="span2">author_id </span>
     <%= f.number_field :author_id %>
   </div>
   <div class="field">
-    <%= f.label :post_date %><br />
+    <span class="span2">author_name </span>
+    <%= f.number_field :author_name %>
+  </div>
+  <div class="field">
+    <span class="span2">post_date </span>
     <%= f.text_field :post_date %>
   </div>
+
   <div class="field">
-    <%= f.label :msg_id %><br />
-    <%= f.text_field :msg_id %>
-  </div>
-  <div class="field">
-    <%= f.label :title %><br />
+    <span class="span2">title </span>
     <%= f.text_field :title %>
   </div>
   <div class="field">
-    <%= f.label :content %><br />
+    <span class="span2">content</span>
     <%= f.text_field :content %>
   </div>
   <div class="field">
-    <%= f.label :text_content %><br />
+    <span class="span2">text_content</span>
     <%= f.text_field :text_content %>
   </div>
   <div class="field">
-    <%= f.label :pic_url %><br />
+    <span class="span2">pic_url</span>
     <%= f.text_field :pic_url %>
   </div>
   <div class="field">
-    <%= f.label :post_url %><br />
+    <span class="span2">post_url </span>
     <%= f.text_field :post_url %>
   </div>
   <div class="field">
-    <%= f.label :status %><br />
+    <span class="span2">status </span>
     <%= f.text_field :status %>
   </div>
   <div class="actions">

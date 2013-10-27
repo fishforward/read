@@ -30,9 +30,47 @@ class SourcesController < ApplicationController
   end
 
   #审核
+  # PUT /sources/audit/1
+  # PUT /sources/audit/1.json
   def audit
-    
+    @source = Source.find(params[:id])
+
+    @post = Post.new
+    @post.site_id = @source.site_id
+    @post.site_name = @source.site_name
+    @post.author_id = @source.author_id
+    @post.author_name = @source.author_name
+    @post.post_date = @source.post_date
+    @post.title = params[:source][:title]
+    @post.content = params[:source][:content]
+    @post.text_content = ActionController::Base.helpers.strip_tags(@post.content)
+    @post.pic_url = @source.pic_url
+    @post.post_url = @source.post_url
+    @post.status = 'Y'  ## 审核通过
+
+    puts @post.content
+    puts @post.text_content
+
+    #tags
+    tags = params[:tags]
+    @post.tag_list = tags
+
+    #主题
+    subjects = params[:subjects]
+    @post.subject_list = subjects
+
+    respond_to do |format|
+      if @post.save
+        @source.destroy ## 删除数据来源
+        format.html { redirect_to @post, notice: 'Post was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: "show_audit" }
+        format.json { render json: @post.errors, status: :unprocessable_entity }
+      end
+    end
   end
+
 
   # 上面是源数据的处理
   ####################################################################
@@ -125,38 +163,13 @@ class SourcesController < ApplicationController
   def update
     @source = Source.find(params[:id])
 
-    @post = Post.new
-    @post.site_id = @source.site_id
-    @post.site_name = @source.site_name
-    @post.author_id = @source.author_id
-    @post.author_name = @source.author_name
-    @post.post_date = @source.post_date
-    @post.title = params[:source][:title]
-    @post.content = params[:source][:content]
-    @post.text_content = ActionController::Base.helpers.strip_tags(@post.content)
-    @post.pic_url = @source.pic_url
-    @post.post_url = @source.post_url
-    @post.status = 'Y'  ## 审核通过
-
-    puts @post.content
-    puts @post.text_content
-
-    #tags
-    tags = params[:tags]
-    @post.tag_list = tags
-
-    #主题
-    subjects = params[:subjects]
-    @post.subject_list = subjects
-
     respond_to do |format|
-      if @post.save
-        @source.destroy ## 删除数据来源
-        format.html { redirect_to @post, notice: 'Post was successfully updated.' }
+      if @source.update_attributes(params[:source])
+        format.html { render action: 'show_audit'}
         format.json { head :no_content }
       else
-        format.html { render action: "show_audit" }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
+        format.html { render action: "edit" }
+        format.json { render json: @source.errors, status: :unprocessable_entity }
       end
     end
   end

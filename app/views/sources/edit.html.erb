@@ -1,6 +1,93 @@
-<h1>Editing source</h1>
+<!-- Start Intro Box -->
+<section id="intro-box" class="single-post">
+  <div class="container">
+      <div class="row">
+          <div class="span12">
+              <h2 class="entry-title">
+                编辑
+              </h2>
 
-<%= render 'form' %>
+                <span class="arrow"></span>
+            </div>
+        </div>
+    </div>
+</section>
 
-<%= link_to 'Show', @source %> |
-<%= link_to 'Back', sources_path %>
+<!-- End Intro Box -->
+<div id="content">
+  <div id="respond" class="offset1">
+  <% if @source %>
+  <%= form_for(@source, :html => { :class => "", :id => "commentform" }) do |f| %>
+    <% if @source.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@source.errors.count, "error") %> prohibited this source from being saved:</h2>
+
+        <ul>
+        <% @source.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <p class="field">
+      <label for="">标题</label><br />
+      <a href=<%= @source.post_url %> TARGET="_blank">原文</a>
+      <%= f.text_field :title %>
+    </p>
+
+    <p class="field">
+      <label for="">来源</label><br />
+      <%= @source.site_name %>
+    </p>
+    <p class="field">
+      <label for="">日期</label><br />
+      <%= f.text_field :post_date %>
+    </p>
+    <p class="field">
+      <label for="">阅读</label><br />
+      <!--<%= f.text_area :content, :cols => 200, :rows => 100 %>-->
+        <%= raw @source.content %>
+    </p>
+
+    <p class="field">
+      <label for="">正文</label><br />
+      <!--<%= f.text_area :content, :cols => 200, :rows => 100 %>-->
+      <textarea id="source_content" name="source[content]" rows="300" style="height:500px;">
+        <%= @source.content %>
+      </textarea>
+    </p>
+    <p>
+      <input type="text" id="replaced" value="" />
+      <input type="text" id="replace" value="" />
+      <button type="button" id="content_rep">替换!</button>
+    </p>
+      
+    <p class="field">
+      <label for="">正文(纯文本)</label><br />
+      <%= f.text_area :text_content, :rows => 30 %>
+    </p>
+
+    <!--
+    <p class="field">
+      <label for="">标签</label><br />
+      <input type="text" id="tags" name="tags" value="" />
+    </p>
+    <p class="field">
+      <label for="">主题</label><br />
+      <span class="btn source" onclick="$('#subjects').ptags_add(['美文慢读']);">美文慢读</span>
+      <span class="btn source" onclick="$('#subjects').ptags_add(['生活感悟']);">生活感悟</span>
+      <span class="btn source" onclick="$('#subjects').ptags_add(['每日一城']);">每日一城</span>
+      <br>
+      <input type="text" id="subjects" name="subjects" value="" />
+    </p>
+	-->
+
+    <p class="actions">
+      <%= f.submit '修改Source' %>
+    </p>
+  <% end %>
+  <% end %>
+
+  </div>
+</div>
