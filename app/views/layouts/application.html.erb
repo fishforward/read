@@ -64,6 +64,11 @@
 	                    	</li>
 	                        <li class=<%= 'active' if params[:controller] == 'tag' && (params[:action] =='subjects' || params[:action] =='subject') %>>
 	                        	<a href="/subjects">主题馆</a>
+	                        	<ul class="sub-menu">
+                                <li><a href="/subject/美文慢读">美文慢读</a></li>
+                                <li><a href="/subject/生活感悟">生活感悟</a></li>
+                                <li><a href="/subject/每日一城">每日一城</a></li>
+                            	</ul>
 	                        </li>
 	                        <li class=<%= 'active' if params[:controller] == 'home' && params[:action] =='about' %>>
 	                        	<a href="/about">关于</a>

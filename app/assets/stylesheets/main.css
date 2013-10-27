@@ -391,6 +391,7 @@ nav#menu #menu-nav ul {
 	position: absolute;
 	top: -9999em;
 	width: 140px !important;
+	margin-top: -20px;
 }
 
 nav#menu #menu-nav ul li { 
