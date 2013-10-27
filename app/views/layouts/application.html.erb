@@ -21,7 +21,7 @@
 	<!-- Mobile Internet Explorer ClearType Technology -->
 	<!--[if IEMobile]>  <meta http-equiv="cleartype" content="on">  <![endif]-->
 
-	<!-- start: CSS   ,"bootstrap-responsive.min.css"   -->
+	<!-- start: CSS    ,"bootstrap-responsive.min.css"  -->
 	<%= stylesheet_link_tag "bootstrap.min.css","responsive.css","settings.css","main.css","jquery.fancybox.css","fonts.css", "shortcodes.css","custom.css","jquery.ptags.default.css" %>
 
 	<!-- Google Font -->
@@ -38,36 +38,24 @@
 
 	<!-- Modernizr 
 	<script src="js/modernizr.js"></script> -->
-
-	<!-- 百度统计 -->
-	<script>
-	var _hmt = _hmt || [];
-	(function() {
-	  var hm = document.createElement("script");
-	  hm.src = "//hm.baidu.com/hm.js?38a8c84f486bac2fc11c0b36053a40a7";
-	  var s = document.getElementsByTagName("script")[0]; 
-	  s.parentNode.insertBefore(hm, s);
-	})();
-	</script>
-
 </head>
 
 <body>
 
 	<!-- Header -->
 	<header>
-		<div class="container-fluid">
-	    	<div class="row-fluid">
+		<div class="container">
+	    	<div class="row">
 	        	<div class="span2 offset1">
 	            	<div id="logo">
 	        			<a href="/" title="SlowerTime">慢时光</a>
 	        		</div>
 	            </div>
 
-	            <div class="span9">
+	            <div class="span8">
 	            	<!-- Mobile Menu -->
-            		<a id="mobile-nav" class="menu-nav" href="#menu-nav">=<span class="menu-icon"></span>=</a>
-	                
+            		<a id="mobile-nav" class="menu-nav" href="#menu-nav"><span class="menu-icon"></span></a>
+            		
 	                <!-- Standard Menu -->	
 	        		<nav id="menu">
 	                    <ul id="menu-nav">
@@ -77,18 +65,17 @@
 	                        <li class=<%= 'active' if params[:controller] == 'tag' && (params[:action] =='subjects' || params[:action] =='subject') %>>
 	                        	<a href="/subjects">主题馆</a>
 	                        </li>
-	                        <!--<li class=<%= 'active' if params[:controller] == 'home' && params[:action] =='about' %>>
+	                        <li class=<%= 'active' if params[:controller] == 'home' && params[:action] =='about' %>>
 	                        	<a href="/about">关于</a>
-	                        </li>-->
+	                        </li>
+
 	                    </ul>
 	                </nav>
 	        	</div>
-	            
+
 	        </div>
 	    </div>
-
 	</header>
-	<!-- End Header -->
 
 	<%= yield %>
 
@@ -132,9 +119,9 @@
 	<!-- End Back to Top -->
 
 	<!-- start: script -->
-	<%= javascript_include_tag "modernizr.js","jquery.min.js","bootstrap.min.js","jquery.ptags.js" %>
+	<%= javascript_include_tag "modernizr.js","jquery.min.js","bootstrap.min.js","jquery.ptags.js","jquery.superfish.min.js","jquery.supersubs.min.js","main.js" %>
 
-	<!-- ,"jquery.themepunch.revolution.min.js","jquery.themepunch.plugins.min.js","jquery.superfish.min.js","jquery.supersubs.min.js","jquery.isotope.js","jquery.fancybox.pack.js","jquery.fancybox-media.js", "plugins.js" ,"main.js" -->
+	<!-- ,"jquery.themepunch.revolution.min.js","jquery.themepunch.plugins.min.js","jquery.isotope.js","jquery.fancybox.pack.js","jquery.fancybox-media.js", "plugins.js" ,"main.js" -->
 
 	<!-- end: script -->
 

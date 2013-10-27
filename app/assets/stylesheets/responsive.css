@@ -264,6 +264,7 @@
 	header #logo a {
 		font-size: 24px;
 		line-height: 60px;	
+		margin-left: 30px;
 	}
 	
 	header .span2 {
@@ -283,6 +284,7 @@
 	#mobile-nav {
     	display: block;
 		float: right;
+		margin-right: 30px;
 	}
 	
 	/* Intro Box */
@@ -465,6 +467,7 @@
 	header #logo a {
 		font-size: 24px;
 		line-height: 60px;	
+		margin-left: 30px;
 	}
 	
 	header .span2 {
@@ -472,7 +475,7 @@
 		width: 80%;	
 	}
 	
-	header .span9 {
+	header .span8 {
 		float: left;
 		width: 20%;	
 	}
@@ -484,6 +487,7 @@
 	#mobile-nav {
     	display: block;
 		float: right;
+		margin-right: 30px;
 	}
 	
 	/* Slider */
@@ -671,6 +675,10 @@
 }
 
 @media (max-width: 320px) {
+
+	#mobile-nav {
+		margin-right: 30px;
+	}
 	
 	/* Intro Box */
 	
@@ -704,7 +712,7 @@
   	only screen and (min-resolution: 2dppx) {
 		
 		.menu-nav .menu-icon{
-			background-image: url(../img/menu-mobile_@2x.png);
+			background-image: url("/assets/menu-mobile_@2x.png");
 			background-size: 16px 32px;
 		}
 		
