@@ -13,8 +13,6 @@ class SourcesController < ApplicationController
     scope = scope.where("title like '%"+@title_text+"%'") if @title_text && !@title_text.blank?
     @sources = scope
 
-    puts @sources.inspect
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @sources}
