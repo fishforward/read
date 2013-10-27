@@ -21,8 +21,8 @@
 	<!-- Mobile Internet Explorer ClearType Technology -->
 	<!--[if IEMobile]>  <meta http-equiv="cleartype" content="on">  <![endif]-->
 
-	<!-- start: CSS -->
-	<%= stylesheet_link_tag "bootstrap.min.css","settings.css","main.css","jquery.fancybox.css","fonts.css", "shortcodes.css","responsive.css","custom.css","jquery.ptags.default.css" %>
+	<!-- start: CSS   ,"bootstrap-responsive.min.css"   -->
+	<%= stylesheet_link_tag "bootstrap.min.css","responsive.css","settings.css","main.css","jquery.fancybox.css","fonts.css", "shortcodes.css","custom.css","jquery.ptags.default.css" %>
 
 	<!-- Google Font -->
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
@@ -56,18 +56,20 @@
 
 	<!-- Header -->
 	<header>
-		<div class="container container-fluid">
+		<div class="container-fluid">
 	    	<div class="row-fluid">
 	        	<div class="span2 offset1">
 	            	<div id="logo">
 	        			<a href="/" title="SlowerTime">慢时光</a>
 	        		</div>
 	            </div>
-	            
+
 	            <div class="span9">
+	            	<!-- Mobile Menu -->
+            		<a id="mobile-nav" class="menu-nav" href="#menu-nav">=<span class="menu-icon"></span>=</a>
 	                
 	                <!-- Standard Menu -->	
-	        		<nav id="menu" class="hidden-phone">
+	        		<nav id="menu">
 	                    <ul id="menu-nav">
 	                    	<li class=<%= 'active' if params[:controller] == 'posts' && params[:action] =='index' %>>
 	                    		<a href="/">首页</a>
@@ -75,47 +77,16 @@
 	                        <li class=<%= 'active' if params[:controller] == 'tag' && (params[:action] =='subjects' || params[:action] =='subject') %>>
 	                        	<a href="/subjects">主题馆</a>
 	                        </li>
-
-	                        
-	                        <li class=<%= 'active' if params[:controller] == 'home' && params[:action] =='about' %>>
+	                        <!--<li class=<%= 'active' if params[:controller] == 'home' && params[:action] =='about' %>>
 	                        	<a href="/about">关于</a>
-	                        </li>
-	                        <!--
-	                        <li><a href="/">生活大白痴</a>-->
-	                        	<!--
-	                        	<ul class="sub-menu">
-	                            	<li><a href="portfolio-2-clm.html">2 Columns</a></li>
-	                                <li><a href="portfolio-3-clm.html">3 Columns</a></li>
-	                                <li><a href="portfolio.html">4 Columns</a></li>
-	                                <li><a href="single-project.html">Single Project</a></li>
-	                            </ul>
-	                        	
 	                        </li>-->
-	                       
 	                    </ul>
 	                </nav>
-
-	               	<!-- Mobile Menu -->
-	            	<a id="mobile-nav" class="menu-nav visible-phone" href="#menu-nav">
-	            		<!--<span class="menu-icon">=</span>-->
-	            		<ul id="menu-nav">
-	                    	<li class=<%= 'active' if params[:controller] == 'posts' && params[:action] =='index' %>>
-	                    		<a href="/">首页</a>
-	                    	</li>
-	                        <li class=<%= 'active' if params[:controller] == 'tag' && (params[:action] =='subjects' || params[:action] =='subject') %>>
-	                        	<a href="/subjects">主题馆</a>
-	                        </li>
-
-	                        
-	                        <li class=<%= 'active' if params[:controller] == 'home' && params[:action] =='about' %>>
-	                        	<a href="/about">关于</a>
-	                        </li>
-	                       
-	                    </ul>
-	            	</a>
 	        	</div>
+	            
 	        </div>
 	    </div>
+
 	</header>
 	<!-- End Header -->
 

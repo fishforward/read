@@ -512,7 +512,7 @@ nav#menu #menu-nav li.sfHover ul a:hover {
 	top: 50%;
 	right: 0;
 	
-	background:url(../img/menu-mobile.png) 0 0 no-repeat;	
+	background:url('menu-mobile.png') ;	/* 0 0 no-repeat */
 	
 	-webkit-transform: rotate(0deg);
 	   -moz-transform: rotate(0deg);
