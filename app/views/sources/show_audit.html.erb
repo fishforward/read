@@ -14,7 +14,7 @@
 </section>
 
 <!-- End Intro Box -->
-<div id="content">
+<div id="content" class="single-post">
   <div id="respond" class="offset1">
   <% if @source %>
   <%= form_for(@source, url: '/sources/audit/'+@source.id.to_s, :html => { :class => "", :id => "commentform" }) do |f| %>
@@ -31,27 +31,31 @@
     <% end %>
 
     <p class="field">
-      <label for="">标题</label><br />
+      <span class="span1">标题</span>
       <a href=<%= @source.post_url %> TARGET="_blank">原文</a>
       <%= f.text_field :title %>
     </p>
 
     <p class="field">
-      <label for="">来源</label><br />
+      <span class="span1">来源</span>
       <%= @source.site_name %>
     </p>
     <p class="field">
-      <label for="">日期</label><br />
-      <%= f.text_field :post_date %>
+      <span class="span1">作者</span>
+      <%= f.text_field :author_name %>
     </p>
     <p class="field">
-      <label for="">阅读</label><br />
+      <span class="span1">日期</span>
+      <%= f.text_field :post_date %>
+    </p>
+    <p class=" entry-content">
+      <span class="span1">阅读</span>
       <!--<%= f.text_area :content, :cols => 200, :rows => 100 %>-->
         <%= raw @source.content %>
     </p>
 
     <p class="field">
-      <label for="">正文</label><br />
+      <span class="span1">正文</span><br>
       <!--<%= f.text_area :content, :cols => 200, :rows => 100 %>-->
       <textarea id="source_content" name="source[content]" rows="300" style="height:500px;">
         <%= @source.content %>
@@ -64,16 +68,16 @@
     </p>
       
     <p class="field">
-      <label for="">正文(纯文本)</label><br />
+      <span class="span1">正文(纯文本)</span><br>
       <%= f.text_area :text_content, :rows => 30 %>
     </p>
 
     <p class="field">
-      <label for="">标签</label><br />
+      <span class="span1">标签</span>
       <input type="text" id="tags" name="tags" value="" />
     </p>
     <p class="field">
-      <label for="">主题</label><br />
+      <span class="span1">主题</span>
       <span class="btn source" onclick="$('#subjects').ptags_add(['美文慢读']);">美文慢读</span>
       <span class="btn source" onclick="$('#subjects').ptags_add(['生活感悟']);">生活感悟</span>
       <!--<span class="btn source" onclick="$('#subjects').ptags_add(['在路上']);">在路上</span>-->

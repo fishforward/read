@@ -39,11 +39,11 @@ class SourcesController < ApplicationController
     @post.site_id = @source.site_id
     @post.site_name = @source.site_name
     @post.author_id = @source.author_id
-    @post.author_name = @source.author_name
-    @post.post_date = @source.post_date
+    @post.author_name = params[:source][:author_name]
+    @post.post_date = params[:source][:post_date]
     @post.title = params[:source][:title]
     @post.content = params[:source][:content]
-    @post.text_content = ActionController::Base.helpers.strip_tags(@post.content)
+    @post.text_content = ActionController::Base.helpers.strip_tags(@post.content)#.gsub(/ */,"")
     @post.pic_url = @source.pic_url
     @post.post_url = @source.post_url
     @post.status = 'Y'  ## 审核通过

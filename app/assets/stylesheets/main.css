@@ -1826,6 +1826,19 @@ nav#menu #menu-nav li.sfHover ul a:hover {
 	color: #F97E76;
 }
 
+.single-post .entry-content{
+
+}
+
+.single-post .entry-content img{
+	width: 50% !important;
+	height: 50% !important;	
+	
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
+
 .single-post .entry-meta {
 	margin-bottom: 30px;	
 }
