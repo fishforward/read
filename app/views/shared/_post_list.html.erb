@@ -5,8 +5,36 @@
     	<% if @posts && @posts.size > 0 %>
 			<% @posts.each do |post| %>
 	        <div class="row">
+
+	        	<% if post.pic_url && !post.pic_url.blank? %>
+	            <div class="span2 offset1">
+	                <div class="team-img">
+	                    <!--<img src="_include/img/people/single-large.jpg" alt="Person">-->
+	                    <a href=<%= '#big-img-'+post.id.to_s %> data-toggle="modal" class="picture">
+							<img class="img-polaroid" alt="content" src=<%= post.pic_url+"!small"%>>
+						</a>
+	                </div>
+
+	                <!-- open pic -->
+	                <div class="modal blog-img-big hide fade in" id=<%="big-img-" + post.id.to_s %> aria-hidden="true">
+						
+						<div class="modal-header">
+							<button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+							<div style="text-align: center;">插图</div>
+						</div>
+
+						<div class="modal-body">
+							<div class="row-fluid">
+								<div class="span12" align=center>
+									<img class="img-polaroid" alt="content" src=<%= post.pic_url+"!big" %> >
+								</div>
+							</div>
+						</div>
+					</div>
+	            </div>
+	            <% end %>
 	            
-	            <div class="span8 offset1">
+	            <div <% if post.pic_url && !post.pic_url.blank? %> class="span8" <%else%> class="span10 offset1" <%end%>>
 	                <div class="team-name">
 	                    <!--<h2>Susan Rakkhita</h2>-->
 	                    <h2><a href= <%= "/posts/"+post.id.to_s %> TARGET="_blank"><%= post.title %></a></h2>
@@ -41,33 +69,6 @@
 	                </div>
 	            </div>
 
-	            <% if post.pic_url && !post.pic_url.blank? %>
-	            <div class="span2 ">
-	                <div class="team-img">
-	                    <!--<img src="_include/img/people/single-large.jpg" alt="Person">-->
-	                    <a href=<%= '#big-img-'+post.id.to_s %> data-toggle="modal" class="picture">
-							<img class="img-polaroid" alt="content" src=<%= post.pic_url+"!small"%>>
-						</a>
-	                </div>
-
-	                <!-- open pic -->
-	                <div class="modal blog-img-big hide fade in" id=<%="big-img-" + post.id.to_s %> aria-hidden="true">
-						
-						<div class="modal-header">
-							<button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
-							<div style="text-align: center;">插图</div>
-						</div>
-
-						<div class="modal-body">
-							<div class="row-fluid">
-								<div class="span12" align=center>
-									<img class="img-polaroid" alt="content" src=<%= post.pic_url+"!big" %> >
-								</div>
-							</div>
-						</div>
-					</div>
-	            </div>
-	            <% end %>
 	        </div>
 
 	        <div class="row">
