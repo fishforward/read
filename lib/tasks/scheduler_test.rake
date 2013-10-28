@@ -9,7 +9,7 @@ namespace :scheduler_test do
 
 	task :test_read_html => :environment do
 	    puts "test_read_html start..."
-	    Site.test_read_html(9, 'http://mistory.info/?p=775')
+	    Site.test_read_html(4, 'http://bbs.sciencenet.cn/home.php?mod=space&uid=279992&do=blog&id=734141')
 	    puts "done."
 	end
 end

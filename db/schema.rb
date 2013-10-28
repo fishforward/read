@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131020035450) do
+ActiveRecord::Schema.define(:version => 20131028123921) do
 
   create_table "authors", :force => true do |t|
     t.string   "name"
@@ -45,6 +45,16 @@ ActiveRecord::Schema.define(:version => 20131020035450) do
   add_index "historysources", ["created_at"], :name => "index_historysources_on_created_at"
   add_index "historysources", ["id"], :name => "index_historysources_on_id"
   add_index "historysources", ["status"], :name => "index_historysources_on_status"
+
+  create_table "pics", :force => true do |t|
+    t.integer  "post_id"
+    t.integer  "order"
+    t.string   "old_link"
+    t.string   "link"
+    t.string   "keypic"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "posts", :force => true do |t|
     t.integer  "site_id"

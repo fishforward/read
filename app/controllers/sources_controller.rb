@@ -1,3 +1,5 @@
+require "utils/upyun"
+
 class SourcesController < ApplicationController
 
   before_filter :authenticate_user!, :except => [:show, :create]
@@ -179,6 +181,14 @@ class SourcesController < ApplicationController
   def destroy
     @source = Source.find(params[:id])
     @source.destroy
+
+    @pics = Pic.find_all_by_post_id(params[:id])
+    @pics.each do |pic|
+      pic.destroy
+
+      link = pic.link.sub("!middle",'').sub(FILE_PATH_PRE,'')
+      UpYun.new().delete(link)
+    end
 
     respond_to do |format|
       format.html { redirect_to '/wait_audit' }

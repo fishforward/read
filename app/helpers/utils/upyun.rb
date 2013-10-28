@@ -39,5 +39,12 @@ class UpYun
       end_time = Time.now.tv_usec
       #puts "upload:" + (end_time - start_time).to_s
     end
+
+    def delete(keyname)
+
+      basic_str = "Basic #{Base64.encode64(''+$Upyun_username+':'+$Upyun_password)}"
+      res= $Http[PRE_PATH + keyname].delete("Authorization" => basic_str)
+      
+    end
     
 end

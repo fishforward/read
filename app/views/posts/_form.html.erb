@@ -14,8 +14,12 @@
   <% end %>
 
   <p class="field">
-    <%= f.label :author_id %><br />
+    <%= f.label :site_name %><br />
     <%= @post.site_name %>
+  </p>
+  <p class="field">
+    <%= f.label :author_name %><br />
+     <%= f.text_field :author_name %>
   </p>
   <p class="field">
     <%= f.label :post_date %><br />

@@ -26,20 +26,22 @@ class Source < ActiveRecord::Base
   		source.content = item.description
   	end
   	source.content = Source.del_css(source.content)
-  	source.content = Source.upload(source.content)
 
   	source.text_content = ActionController::Base.helpers.strip_tags(source.content)
-  	#source.pic_url
   	source.post_url = item.link
   	source.status = 'W'
   	source.save
+
+    source.content,source.pic_url = Source.upload(source)
+    source.save
+
   	return source
   end
 
   def self.del_css(content)
   	html = Nokogiri::HTML(content)
 
-  	arr = ['div','p','span']
+  	arr = ['div','p','span','a','img']
   	arr.each do |tag|
 	  	html.css(tag).each do |h|
 	  		h[:style]=""
@@ -49,24 +51,29 @@ class Source < ActiveRecord::Base
   end
 
 
-  def self.upload(content)
+  def self.upload(source)
+    content = source.content
 
   	html = Nokogiri::HTML(content)
 
   	#图片上传
-
-  	html.css("img").each do |image|
+    first_img = ''
+  	html.css("img").each_with_index do |image,i|
       img = image[:src]
-      puts img
-        img_name = Uuid.get()
-        UpYun.new().upload(img,img_name)
 
-        new_img = FILE_PATH_PRE + img_name + '!middle'
-        #puts new_img
-        content = content.sub(img, new_img)
+      puts img
+      img_name = Uuid.get()
+      UpYun.new().upload(img,img_name)
+      new_img = FILE_PATH_PRE + img_name + '!middle'
+
+      Pic.create(source, img, new_img, i)
+
+      #puts new_img
+      content = content.sub(img, new_img)
+      first_img = new_img.sub('!middle','') if i==0
   	end
 
-  	return content
+  	return content, first_img
   end
 
 end

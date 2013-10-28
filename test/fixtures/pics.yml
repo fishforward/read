@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  post_id: 1
+  order: 1
+  old_link: MyString
+  link: MyString
+  keypic: MyString
+
+two:
+  post_id: 1
+  order: 1
+  old_link: MyString
+  link: MyString
+  keypic: MyString
