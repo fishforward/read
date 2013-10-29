@@ -16,7 +16,7 @@ class Post < ActiveRecord::Base
   	if posts && posts.length > 0
 
       posts.each do |post|
-        number = 300 + Random.rand(100)
+        number = 260 + Random.rand(40)
         post.text_content = post.text_content[0,number] if post.text_content
       end
     end

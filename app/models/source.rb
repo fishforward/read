@@ -41,7 +41,7 @@ class Source < ActiveRecord::Base
   def self.del_css(content)
   	html = Nokogiri::HTML(content)
 
-  	arr = ['div','p','span','a','img']
+  	arr = ['div','p','span','a','img','pre','font']
   	arr.each do |tag|
 	  	html.css(tag).each do |h|
 	  		h[:style]=""

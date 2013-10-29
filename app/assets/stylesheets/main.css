@@ -23,8 +23,8 @@ body{
 	background:#FFFFFF;
 	color:#323A45;
 	font-weight:300;
-	font-size:16px;
-	font-family: 'Open Sans', sans-serif;
+	font-size:14px;
+	font-family: '微软雅黑', '宋体';
 	line-height:28px;
 }
 
@@ -75,7 +75,7 @@ hr {
 	border-bottom: none;
 	border-left: none;
 	border-right: none;
-    margin: 20px 0 40px;
+    margin: 10px 0 20px 0;
 }
 
 ul, ol {
@@ -130,7 +130,7 @@ address {
 
 input, button, select, textarea {
 	font-weight: 400;
-	font-family: 'Open Sans', sans-serif;
+	/*font-family: 'Open Sans', sans-serif;*/
 	outline: 0;
 	
 	-webkit-appearance: none;
@@ -184,7 +184,7 @@ pre {
             border-radius: 3px;
   	color: #232527;
   	font-size: 12px;
-  	font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+  	/*font-family: Monaco, Menlo, Consolas, "Courier New", monospace;*/
 }
 
 code {
@@ -239,7 +239,7 @@ h6{
 	margin:0 0 20px 0;
 	color:#323A45;
 	font-weight:600;
-	font-family: 'Open Sans', sans-serif;
+	/*font-family: 'Open Sans', sans-serif;*/
 	line-height:1.5em;
 }
 
@@ -594,6 +594,11 @@ nav#menu #menu-nav li.sfHover ul a:hover {
 	padding-left: 20px;	
 }
 
+
+#accordionArea {
+	margin-top: 60px;
+}
+
 /****** add
 **/
 /* 显示全部 */
@@ -700,7 +705,7 @@ nav#menu #menu-nav li.sfHover ul a:hover {
 
 .tparrows:before {
     display: inline-block;
-    font-family: 'Icons';
+    /*font-family: 'Icons';*/
     font-size: 16px;
     font-style: normal;
     font-weight: normal;
@@ -1050,21 +1055,24 @@ nav#menu #menu-nav li.sfHover ul a:hover {
 }
 
 /* Single Team Page */
+#single-team{
+	margin-top: -10px;
+}
 
 #single-team .team-img {
-	margin-bottom: 40px;	
+	margin-bottom: 10px;	
 }
 
 #single-team .team-img img {
-	margin-top: 40px;
+	margin-top: 10px;
 	width: 100%;
 }
 
 #single-team .team-social ul {
 	margin: 0;
-	padding: 25px 0 0;
+	padding: 5px 0 0;
 	
-	border-top: 1px solid #E6E6E6;
+	border-top: 1px solid #F5F5F5;
 }
 
 #single-team .team-social ul li {
@@ -1078,7 +1086,7 @@ nav#menu #menu-nav li.sfHover ul a:hover {
 }
 
 #single-team .team-social ul li a i {
-	font-size: 20px;
+	font-size: 16px;
 	color: #D0DBE2;
 	
 	-webkit-transition: color 0.15s ease-in-out 0s;	
@@ -1091,10 +1099,14 @@ nav#menu #menu-nav li.sfHover ul a:hover {
 	color: #F97E76;
 }
 
+#single-team .team-name{
+	margin-bottom: -10px;
+}
+
 #single-team .team-name h2 {
 	font-size: 20px;
 	font-weight: 500;
-	margin-bottom: 5px;
+	margin-bottom: 0px;
 }
 
 #single-team .team-name h3 {

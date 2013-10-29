@@ -8,11 +8,13 @@
               </h2>
                 
                 <div class="entry-meta">
-                    <span class="author"><%= @post.author_name %></span>
-                    <span class="divider">/</span>
+                    <% if @post.author_name && !@post.author_name.blank? %>
+                      <span class="author"><%= @post.author_name %></span>
+                      <span class="divider">/</span>
+                    <% end %>
                     <!--<span class="published"><%= @post.post_date %></span>
                     <span class="divider">/</span>-->
-                    <span class="read_num"><% if @post.pv %> <%= @post.pv/2 %>次阅读<% end %></span>
+                    <span class="read_num"><% if @post.pv %> 阅读(<%= @post.pv/2 %>)<% end %></span>
                 </div>
                 <span class="arrow"></span>
             </div>
@@ -49,12 +51,13 @@
                 </span>
 
                 <span class="entry-tags">
-                  <span class="divider">/</span>
+                  <span class="divider">|</span>
                   标签:
                   <% @post.tags.each do |tag|%>
                       <a href="<%="/tag/"+tag.name %>"><%= tag.name %></a>
                       <span class="divider">|</span>
                   <% end %>
+                  <span class="published"><%= @post.post_date %></span>
                   
                 </span>
               </div>

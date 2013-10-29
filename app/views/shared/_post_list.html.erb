@@ -4,10 +4,22 @@
 
     	<% if @posts && @posts.size > 0 %>
 			<% @posts.each do |post| %>
+			<div class="row">
+				<div class="span8 offset2">
+					<div class="team-name">
+	                    <!--<h2>Susan Rakkhita</h2>-->
+	                    <h2><a href= <%= "/posts/"+post.id.to_s %> TARGET="_blank"><%= post.title %></a></h2>
+	                    <!--<h3>Founder</h3>-->
+	                    <h3><!--<a href=<%= "/authors/"+post.author_id.to_s %>>-->
+	                    	<%= post.author_name %>
+	                    <!--</a>--></h3>
+	                </div>
+            	</div>
+			</div>
 	        <div class="row">
 
 	        	<% if post.pic_url && !post.pic_url.blank? %>
-	            <div class="span2 offset1">
+	            <div class="span2 offset2">
 	                <div class="team-img">
 	                    <!--<img src="_include/img/people/single-large.jpg" alt="Person">-->
 	                    <a href=<%= '#big-img-'+post.id.to_s %> data-toggle="modal" class="picture">
@@ -34,15 +46,8 @@
 	            </div>
 	            <% end %>
 	            
-	            <div <% if post.pic_url && !post.pic_url.blank? %> class="span8" <%else%> class="span10 offset1" <%end%>>
-	                <div class="team-name">
-	                    <!--<h2>Susan Rakkhita</h2>-->
-	                    <h2><a href= <%= "/posts/"+post.id.to_s %> TARGET="_blank"><%= post.title %></a></h2>
-	                    <!--<h3>Founder</h3>-->
-	                    <h3><!--<a href=<%= "/authors/"+post.author_id.to_s %>>-->
-	                    	<%= post.author_name %>
-	                    <!--</a>--></h3>
-	                </div>
+	            <div <% if post.pic_url && !post.pic_url.blank? %> class="span6" <%else%> class="span8 offset2" <%end%>>
+	                
 	                <div class="team-description">
 
 					   	<div class="text_str">
@@ -72,7 +77,7 @@
 	        </div>
 
 	        <div class="row">
-	            <hr class="span10 offset1">
+	            <hr class="span8 offset2">
 	        </div>
 
 	        <% end %> 
