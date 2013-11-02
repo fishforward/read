@@ -62,19 +62,32 @@ class Source < ActiveRecord::Base
   	#图片上传
     first_img = ''
   	html.css("img").each_with_index do |image,i|
+      img = nil
+      # sina图片特殊处理  如果有real_src 则赋值给src
+      if source.post_url.include?('http://blog.sina.com.cn')
+        img = image[:real_src]
+        #puts img
+        image[:src] = img if img && !img.blank?
+        #puts image[:src]
+      end
       img = image[:src]
 
       puts img
-      img_name = Uuid.get()
-      UpYun.new().upload(img,img_name)
-      new_img = FILE_PATH_PRE + img_name + '!middle'
+      if img && !img.blank?
 
-      Pic.create(source, img, new_img, i)
+        img_name = Uuid.get()
+        #puts img_name
+        UpYun.new().upload(img,img_name)
+        new_img = FILE_PATH_PRE + img_name + '!middle'
 
-      #puts new_img
-      content = content.sub(img, new_img)
-      first_img = new_img.sub('!middle','') if i==0
-  	end
+        Pic.create(source, img, new_img, i)
+
+        #puts new_img
+        img = img.sub('&','&amp;') # 特殊符号替换
+        content = content.sub(img, new_img)
+        first_img = new_img.sub('!middle','') if i==0
+  	  end
+    end
 
   	return content, first_img
   end
