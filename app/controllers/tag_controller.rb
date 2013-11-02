@@ -5,7 +5,7 @@ class TagController < ApplicationController
   def subjects
 
     ## 这里做个写死的处理
-    @name = '美文慢读'
+    @name = '美文'
     @posts = Post.tagged_with(@name).paginate(:page => params[:page], :per_page => 20, :order => "post_url desc" )
     @posts= Post.short_cut(@posts)
 
