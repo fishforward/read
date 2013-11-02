@@ -6,7 +6,7 @@ class TagController < ApplicationController
 
     ## 这里做个写死的处理
     @name = '美文慢读'
-    @posts = Post.tagged_with(@name).paginate(:page => params[:page], :per_page => 20, :order => "updated_at desc" )
+    @posts = Post.tagged_with(@name).paginate(:page => params[:page], :per_page => 20, :order => "post_url desc" )
     @posts= Post.short_cut(@posts)
 
     respond_to do |format|
@@ -18,7 +18,7 @@ class TagController < ApplicationController
   def subject
 
     @name = params[:name]
-    @posts = Post.tagged_with(@name).paginate(:page => params[:page], :per_page => 20, :order => "updated_at desc" )
+    @posts = Post.tagged_with(@name).paginate(:page => params[:page], :per_page => 20, :order => "post_url desc" )
     @posts= Post.short_cut(@posts)
 
     respond_to do |format|
@@ -29,7 +29,7 @@ class TagController < ApplicationController
 
   def show
   	@name = params[:name]
-  	@posts = Post.tagged_with(@name).paginate(:page => params[:page], :per_page => 20, :order => "updated_at desc" )
+  	@posts = Post.tagged_with(@name).paginate(:page => params[:page], :per_page => 20, :order => "post_url desc" )
   	@posts= Post.short_cut(@posts)
 
   	respond_to do |format|

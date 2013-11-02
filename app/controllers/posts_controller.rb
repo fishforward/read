@@ -8,7 +8,7 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.where(:status=>'Y').paginate(:page => params[:page], :per_page => 20, :order => 'updated_at desc')
+    @posts = Post.where(:status=>'Y').paginate(:page => params[:page], :per_page => 20, :order => 'post_date desc')
 
     @posts= Post.short_cut(@posts)
 

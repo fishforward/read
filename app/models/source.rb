@@ -45,6 +45,9 @@ class Source < ActiveRecord::Base
   	arr.each do |tag|
 	  	html.css(tag).each do |h|
 	  		h[:style]=""
+        h[:href]="javascript:void(0);"
+        h[:class]=""
+        h[:target]=""
 	  	end
   	end
   	return html.css("body").to_s
