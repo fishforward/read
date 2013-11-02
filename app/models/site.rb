@@ -5,7 +5,7 @@ require 'nokogiri'
 require 'open-uri'
 
 class Site < ActiveRecord::Base
-  attr_accessible :auto_read, :content_tag, :name, :name_tag, :read_type, :status, :url, :read_url, :last_pub_date, :author, :pv_tag, :comment_tag, :transmit_tag, :love_tag, :replace_tag	
+  attr_accessible :auto_read, :content_tag, :name, :name_tag, :read_type, :status, :url, :read_url, :last_pub_date, :author	
 
 
   def self.read_site

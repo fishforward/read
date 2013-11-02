@@ -4,7 +4,7 @@ require 'open-uri'
 require "utils/upyun"
 
 class Post < ActiveRecord::Base
-  attr_accessible :site_id, :site_name, :author_id, :author_name, :content, :text_content, :pic_url, :post_date, :post_url, :status, :title, :yes, :no, :pv, :score
+  attr_accessible :site_id, :site_name, :author_id, :author_name, :content, :text_content, :pic_url, :post_date, :post_url, :status, :title, :yes, :no, :pv
 
   belongs_to :author
 

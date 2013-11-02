@@ -52,7 +52,7 @@
 
 					   	<div class="text_str">
 					   		<%= raw post.text_content %>
-					   		<a href= <%= "/posts/"+post.id.to_s %> TARGET="_blank"><i class="font-icon-read-more"></i></a>
+					   		<a href= <%= "/posts/"+post.id.to_s %> TARGET="_blank"><i class="font-icon-read-more"></i><i class="font-icon-read-more"></i></a>
 					   	</div>
 <!--
 		               	<a class='showall' href='javascript:void(0)'> 显示全部</a>
@@ -69,7 +69,7 @@
 	                        		<i class="font-icon-eye"><% if post.pv %> <%=post.pv/2%> <% end %></i>
 	                        	</a>
 	                    	</li>
-	                        <li><a href=<%= "/posts/"+post.id.to_s+'#link_tag' %> TARGET="_blank"><i class="font-icon-comments-line"></i></a></li>
+	                        <li><a href=<%= "/posts/"+post.id.to_s %> TARGET="_blank"><i class="font-icon-heart-line"></i></a></li>
 	                    </ul>
 	                </div>
 	            </div>

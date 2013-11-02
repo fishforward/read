@@ -65,9 +65,14 @@
 	                        <li class=<%= 'active' if params[:controller] == 'tag' && (params[:action] =='subjects' || params[:action] =='subject') %>>
 	                        	<a href="/subjects">主题馆</a>
 	                        	<ul class="sub-menu">
-                                <li><a href="/subject/美文慢读">美文慢读</a></li>
-                                <li><a href="/subject/生活感悟">生活感悟</a></li>
-                                <li><a href="/subject/一座城">一座城</a></li>
+	                                <li><a href="/subject/美文">美文</a></li>
+
+	                                <li><a href="/subject/感悟">感悟</a></li>
+	                                <li><a href="/subject/人物志">人物志</a></li>
+
+	                                <li><a href="/subject/一座城">一座城</a></li>
+	                                <li><a href="/subject/书单">书单</a></li>
+
                             	</ul>
 	                        </li>
 	                        <li class=<%= 'active' if params[:controller] == 'home' && params[:action] =='about' %>>

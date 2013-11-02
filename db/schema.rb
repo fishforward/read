@@ -73,7 +73,6 @@ ActiveRecord::Schema.define(:version => 20131030145833) do
     t.integer  "pv"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
-    t.integer  "score"
   end
 
   add_index "posts", ["author_id"], :name => "index_posts_on_author_id"
@@ -94,11 +93,6 @@ ActiveRecord::Schema.define(:version => 20131030145833) do
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
     t.string   "author"
-    t.string   "pv_tag"
-    t.string   "comment_tag"
-    t.string   "transmit_tag"
-    t.string   "love_tag"
-    t.string   "replace_tag"
   end
 
   create_table "sources", :force => true do |t|
@@ -115,12 +109,6 @@ ActiveRecord::Schema.define(:version => 20131030145833) do
     t.string   "status"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
-    t.integer  "pv"
-    t.integer  "comment"
-    t.integer  "transmit"
-    t.integer  "love"
-    t.integer  "adjust"
-    t.integer  "score"
   end
 
   add_index "sources", ["created_at"], :name => "index_sources_on_created_at"
