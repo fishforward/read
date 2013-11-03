@@ -29,8 +29,9 @@ Weixintui::Application.routes.draw do
   match '/' => "posts#index"
 
   match '/sites/read/:id' => 'sites#read'
-
   match '/sources/audit/:id' => 'sources#audit'
+
+  match 'love' => 'love#create_post'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

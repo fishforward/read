@@ -11,7 +11,7 @@
 
 	<title>慢时光 - 精选阅读</title>   
 	<meta content="慢时光, 阅读,精选阅读, 微信" name="description">
-	<meta content="slowly, time, 慢时光, 阅读, 微信, 公众平台, 公众账号" name="keywords">
+	<meta content="slow, time, 慢时光, 阅读, 微信, 公众平台, 公众账号" name="keywords">
 
 	<!-- Mobile Specifics -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,6 +23,7 @@
 
 	<!-- start: CSS    ,"bootstrap-responsive.min.css"  -->
 	<%= stylesheet_link_tag "bootstrap.min.css","responsive.css","settings.css","main.css","jquery.fancybox.css","fonts.css", "shortcodes.css","custom.css","jquery.ptags.default.css" %>
+	<%= csrf_meta_tag %>
 
 	<!-- Google Font -->
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
@@ -128,7 +129,7 @@
 	<!-- End Back to Top -->
 
 	<!-- start: script -->
-	<%= javascript_include_tag "modernizr.js","jquery.min.js","bootstrap.min.js","jquery.ptags.js","jquery.superfish.min.js","jquery.supersubs.min.js","main.js" %>
+	<%= javascript_include_tag "modernizr.js","jquery-1.9.1.js","bootstrap.min.js","jquery.ptags.js","jquery.superfish.min.js","jquery.supersubs.min.js","main.js" %>
 
 	<!-- ,"jquery.themepunch.revolution.min.js","jquery.themepunch.plugins.min.js","jquery.isotope.js","jquery.fancybox.pack.js","jquery.fancybox-media.js", "plugins.js" ,"main.js" -->
 
@@ -217,6 +218,36 @@
 					str = str.replace(re, $("#replace").val())
 					$("#source_content").val(str)
 				}
+			});
+
+			// love按钮
+			$('span.post_love a').click(function (){ //直接把onclick事件写在了JS中，而不需要混在XHTML中了 
+				t = $(this).parent()
+
+				var id = $(this).parent().attr("id")
+		        var params="post_id="+id
+
+		        $.ajax({ 
+		            url:'/love.json', //后台处理程序 
+            		beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+		            type:'post', //数据发送方式 
+		            dataType:'json', //接受数据格式 
+		            data:params, //要传递的数据 
+		            error: function(xhr, status, err) {
+					if (xhr.status == 401)
+					window.location.href = '/users/sign_in';
+					},
+		            success: dd_love//回传函数(这里是函数名) 
+		        }); 
+		       	//结果处理
+				function dd_love(json){
+						if(json["flag"] != null && json["flag"]==true){
+
+							t.prev().show()
+							t.hide()
+							t.next().html(Number(json["love_num"]))
+						}
+					}
 			});
 
 		});

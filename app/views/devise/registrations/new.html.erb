@@ -1,131 +1,89 @@
-<div class="blog">
-	<div class="span8 blog-content">   
-		<h2>您迷路嘍～～～</h2>
-		<h2>后台管理注册</h2>
+<!-- Start Intro Box -->
+<section id="intro-box" class="single-post">
+  <div class="container">
+      <div class="row">
+          <div class="span12">
+              <h2 class="entry-title">
+                注册
+              </h2>
+                
+              <span class="arrow"></span>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Intro Box -->
 
-		<!--
-		<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-			<%= devise_error_messages! %>
+<section id="content">
+    <div id="single-team" class="container">
+		<div class="blog">
+			<div class="span5 offset3">   
 
-			<div class="input">
-				<div class="input-prepend">
-					<span class="add-on">Email:</span>							
-					<%= f.email_field :email, :autofocus => true %>
-				</div>
-			</div>
+				<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:class => "form-horizontal"}) do |f| %>
+					<fieldset>
 
-			<div class="input">
-				<div class="input-prepend">
-					<span class="add-on">Password:</span>							
-					<%= f.password_field :password %>
-				</div>
-			</div>
+						<% if devise_error_messages! && devise_error_messages!.class!="".class %>
+					  		<div class="alert alert-error">
+								<button type="button" class="close" data-dismiss="alert">×</button>
+					  			<%= devise_error_messages! %>
+					  		</div>
+					  	<% end %>
 
-			<div class="input">
-				<div class="input-prepend">
-					<span class="add-on">Password confirm:</span>							
-					<%= f.password_field :password_confirmation %>
-				</div>
-			</div>
+						<% if notice %>
+							<div class="alert">
+								<button type="button" class="close" data-dismiss="alert">×</button>
+								<%=notice%>
+						    </div> 
+						<% end %>
+						<% if alert %>
+							<div class="alert">
+								<button type="button" class="close" data-dismiss="alert">×</button>
+								<%=alert%>
+							</div> 
+						<% end %>
 
+						<div class="control-group">
+							<label class="control-label" for="email">邮箱</label>
+				  			<div class="controls">
+				  				<%= f.email_field :email %>
+				  			</div>
+				  		</div>
+				  		<div class="control-group">
+				  			<label class="control-label" for="password">密码</label>
+				  			<div class="controls">
+				  				<%= f.password_field :password %>
+				  			</div>
+				  		</div>
 
-		  <div style="margin-left:30px;"><%= f.submit "提交" %></div>
-		<% end %>
-		-->
+				  		<div class="control-group">
+				  			<label class="control-label" for="password again">确认密码</label>
+				  			<div class="controls">
+						  		<%= f.password_field :password_confirmation %>
+						  	</div>
+				  		</div>
 
-		<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:class => "form-horizontal"}) do |f| %>
+					    <div class="control-group">
+					    	<div class="controls">
+					    		&nbsp;&nbsp;&nbsp;&nbsp;
+					    		&nbsp;&nbsp;&nbsp;&nbsp;
+								<%= f.submit "提交注册信息",:class=>"btn btn-primary" %>
+															
+							</div>
+						</div>
 
-			<fieldset>
-				
-				<% if devise_error_messages! %>
-			  		<div class="alert alert-error">
-						<button type="button" class="close" data-dismiss="alert">×</button>
-			  			<%= devise_error_messages! %>
-			  		</div>
-			  	<% end %>
-
-				<% if notice %>
-					<div class="alert">
-						<button type="button" class="close" data-dismiss="alert">×</button>
-						<%=notice%>
-				    </div> 
+						<div class="control-group">
+					    	<div class="controls">
+					    		<%= link_to "站内登录", new_session_path(resource_name),:class=>"" %>
+					    		<!--<%= link_to image_tag("weibo-loginbtn_03.png"), '/users/auth/weibo' %>-->
+					    		<!--<%= link_to image_tag("qq_Connect_logo_3.png"), '/users/auth/qq_connect' %>-->
+					    		&nbsp;&nbsp;&nbsp;&nbsp;
+					    		<%= link_to image_tag("qq_Connect_logo_3.png"), '/users/auth/tqq' %>
+							</div>
+						</div>
+					</fieldset>
 				<% end %>
-				<% if alert %>
-					<div class="alert">
-						<button type="button" class="close" data-dismiss="alert">×</button>
-						<%=alert%>
-					</div> 
-				<% end %>
 
-				<div class=control-group>
-					<div class="controls">
-					  	<input id="user_avatar" name="user[avatar]" size="30" type="hidden" value=<% if(session[:omniauth])%> <%= session[:omniauth].info.image %> <%else%> http://ww3.sinaimg.cn/large/a711dee4gw1dzufswlnw3j.jpg <% end %> />
-						<img alt="" class="thumb" src=
-							<% if(session[:omniauth])%>
-						   		<%= session[:omniauth].info.image %>
-						   	<%else%>
-						   		'' 
-						   	<% end %>
-						>
-					</div>
-				</div>
-
-				<div class=control-group>
-					<label class="control-label" for="user_Nickname">Nick name</label>
-					<div class="controls">
-						<% if(session[:omniauth])%>
-						<input id="user_nick_name" name="user[nick_name]" type="text" value=
-							<% if(session[:omniauth])%>
-						   		<%= session[:omniauth].info.nickname %>
-						   	<%else%>
-						   		'' 
-						   	<% end %> 
-						>
-						<% else %> 
-							<%= f.text_field :nick_name %>
-						<% end %> 
-					</div>
-				</div>
-
-				<div class=control-group>
-					<label class="control-label" for="email">Email</label>
-		  			<div class="controls">
-		  				<%= f.email_field :email %>
-		  			</div>
-		  		</div>
-		  		<div class=control-group>
-		  			<label class="control-label" for="password">Password</label>
-		  			<div class="controls">
-		  				<%= f.password_field :password %>
-		  			</div>
-		  		</div>
-
-		  		<div class=control-group>
-		  			<label class="control-label" for="password again">Password again</label>
-		  			<div class="controls">
-				  		<%= f.password_field :password_confirmation %>
-				  	</div>
-		  		</div>
-
-			    <div class=control-group>
-			    	<br>
-			    	<div class="controls">
-						<%= f.submit "注册",:class=>"btn btn-primary" %>
-						
-						<%= link_to "登录", new_session_path(resource_name),:class=>"btn btn-inverse" %><br />
-					</div>
-				</div>
-
-				<div class=control-group>
-			    	<div class="controls">
-			    		<!--<%= link_to image_tag("weibo-loginbtn_03.png"), '/users/auth/weibo' %>-->
-			    		<!--<%= link_to image_tag("qq_Connect_logo_3.png"), '/users/auth/qq_connect' %>-->
-			    		<%= link_to image_tag("qq_Connect_logo_3.png"), '/users/auth/tqq' %>
-					</div>
-				</div>
-			</fieldset>
-
-		<% end %>
-
+			</div>
+		</div>
 	</div>
-</div>
+</section>

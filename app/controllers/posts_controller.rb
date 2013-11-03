@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
 
   before_filter :authenticate_user!, :except => [:index, :show]
+  before_filter :check_admin_user, :except => [:index, :show]
 
 
   delegate "strip_tags", :to => "ActionController::Base.helpers"
@@ -9,12 +10,26 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     @posts = Post.where(:status=>'Y').paginate(:page => params[:page], :per_page => 20, :order => 'post_date desc')
-
     @posts= Post.short_cut(@posts)
+
+    @post_ids = nil  # 当前页love的列表
+    love_post_ids = []  # 所有love的列表
+    if current_user
+      @post_ids = []
+      love_posts = current_user.posts
+
+      love_posts.each do |post|  love_post_ids << post.id end
+
+      @posts.each do |p_post|
+        if love_post_ids.include?(p_post.id)
+          @post_ids << p_post.id
+        end
+      end
+    end
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @posts }
+      format.json { render json: @posts | @post_ids }
     end
   end
 

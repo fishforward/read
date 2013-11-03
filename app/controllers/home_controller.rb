@@ -6,6 +6,7 @@ require "utils/upyun"
 class HomeController < ApplicationController
 
 	before_filter :authenticate_user!, :except => [:about]
+  before_filter :check_admin_user, :except => [:about]
 
   # 不能直接用，测试方法
   def index

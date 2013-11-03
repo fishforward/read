@@ -11,7 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131030145833) do
+ActiveRecord::Schema.define(:version => 20131121141155) do
+
+  create_table "authentications", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "access_token"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
 
   create_table "authors", :force => true do |t|
     t.string   "name"
@@ -73,12 +82,18 @@ ActiveRecord::Schema.define(:version => 20131030145833) do
     t.integer  "pv"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
+    t.integer  "score"
   end
 
   add_index "posts", ["author_id"], :name => "index_posts_on_author_id"
   add_index "posts", ["created_at"], :name => "index_posts_on_created_at"
   add_index "posts", ["id"], :name => "index_posts_on_id"
   add_index "posts", ["status"], :name => "index_posts_on_status"
+
+  create_table "posts_users", :force => true do |t|
+    t.integer "post_id", :null => false
+    t.integer "user_id", :null => false
+  end
 
   create_table "sites", :force => true do |t|
     t.string   "name"
@@ -93,6 +108,11 @@ ActiveRecord::Schema.define(:version => 20131030145833) do
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
     t.string   "author"
+    t.string   "pv_tag"
+    t.string   "comment_tag"
+    t.string   "transmit_tag"
+    t.string   "love_tag"
+    t.string   "replace_tag"
   end
 
   create_table "sources", :force => true do |t|
@@ -109,6 +129,12 @@ ActiveRecord::Schema.define(:version => 20131030145833) do
     t.string   "status"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
+    t.integer  "pv"
+    t.integer  "comment"
+    t.integer  "transmit"
+    t.integer  "love"
+    t.integer  "adjust"
+    t.integer  "score"
   end
 
   add_index "sources", ["created_at"], :name => "index_sources_on_created_at"

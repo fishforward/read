@@ -4,7 +4,7 @@
       <div class="row">
           <div class="span12">
               <h2 class="entry-title">
-                后台管理登录  您迷路嘍～～～
+                登录
               </h2>
                 <span class="arrow"></span>
             </div>
@@ -12,39 +12,10 @@
     </div>
 </section>
 
-<section id="contact">
+<section id="content">
     <div id="single-team" class="container">
 		<div class="blog">
-			<div class="span8 blog-content">   
-
-				<!--
-				<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-					<% if notice %>
-						<button type="button" class="close" data-dismiss="alert">×</button>
-						<p class="alert"><%=notice%></p>
-					<% end %>
-					<% if alert %>
-						<button type="button" class="close" data-dismiss="alert">×</button>
-						<p class="alert alert-error"><%=alert%></p>
-					<% end %>
-					
-					<div class="input">
-						<div class="input-prepend">
-							<span class="add-on">Email:</span>							
-							<%= f.text_field :email, :autofocus => true, :size =>10 %>
-						</div>
-					</div>
-
-					<div class="input">
-						<div class="input-prepend">
-							<span class="add-on">Password:</span>							
-							<%= f.password_field :password , :size =>10 %>
-						</div>
-					</div>
-
-				  <div style="margin-left:30px;"><%= f.submit "提交" %></div>
-				<% end %>
-				-->
+			<div class="span5 offset3">   
 
 				<%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => "form-horizontal"}) do |f| %>
 
@@ -71,20 +42,12 @@
 								 <%= f.password_field :password %>
 							</div>
 						</div>
-						<div class=control-group>
-							<div class="controls">
-								<% if devise_mapping.rememberable? -%>
-									<div><%= f.check_box :remember_me %> 记住我
-								<% end -%>
-							</div>
-						</div>
 
 					    <div class=control-group>
-					    	<br>
 					    	<div class="controls">
 								<%= f.submit "登录",:class=>"btn btn-primary" %>
 								
-								<%= render "devise/shared/links" %>
+								<!--<%= render "devise/shared/links" %>-->
 							</div>
 						</div>
 
@@ -92,7 +55,7 @@
 					    	<div class="controls">
 					    		<!--<%= link_to image_tag("weibo-loginbtn_03.png"), '/users/auth/weibo' %>-->
 					    		<!--<%= link_to image_tag("qq_Connect_logo_3.png"), '/users/auth/qq_connect' %>-->
-					    		<%= link_to image_tag("qq_Connect_logo_3.png"), '/users/auth/tqq' %>
+					    		<%= link_to image_tag("tqq_logo_3.png"), '/users/auth/tqq' %>
 
 
 							</div>
@@ -104,4 +67,4 @@
 			</div>
 		</div>
 	</div>
-</div>
+</section>

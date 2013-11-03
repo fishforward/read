@@ -1,6 +1,7 @@
 class AuthorsController < ApplicationController
 
-  before_filter :authenticate_user!, :except => [:show]
+  before_filter :authenticate_user!
+  before_filter :check_admin_user
 
   # GET /authors
   # GET /authors.json

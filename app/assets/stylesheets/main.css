@@ -1095,6 +1095,16 @@ nav#menu #menu-nav li.sfHover ul a:hover {
 		    transition: color 0.15s ease-in-out 0s;
 }
 
+#single-team .team-social .post_unlove {
+	font-size: 16px;
+	color: #F97E76;
+	
+	-webkit-transition: color 0.15s ease-in-out 0s;	
+	   -moz-transition: color 0.15s ease-in-out 0s;
+		 -o-transition: color 0.15s ease-in-out 0s;
+		    transition: color 0.15s ease-in-out 0s;
+}
+
 #single-team .team-social ul li a:hover i {
 	color: #F97E76;
 }

@@ -18,4 +18,11 @@ class ApplicationController < ActionController::Base
    def render_error(exception = nil)
      render :template => "errors/500", :status => 500, :layout => 'application'
    end
+
+
+  def check_admin_user
+    if current_user.id != 1
+      render :template => "errors/999", :status => 500, :layout => 'application'
+    end    
+  end
 end

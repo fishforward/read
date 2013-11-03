@@ -3,6 +3,7 @@ require "utils/upyun"
 class SourcesController < ApplicationController
 
   before_filter :authenticate_user!, :except => [:show, :create]
+  before_filter :check_admin_user, :except => [:show, :create]
 
   #显示待审核列表
   def wait_audit

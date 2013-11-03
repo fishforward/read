@@ -1,7 +1,7 @@
 class SitesController < ApplicationController
 
   before_filter :authenticate_user!
-
+  before_filter :check_admin_user
 
   ##read
   # GET /sites/read/1

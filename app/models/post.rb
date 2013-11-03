@@ -8,6 +8,8 @@ class Post < ActiveRecord::Base
 
   belongs_to :author
 
+  has_and_belongs_to_many :users
+
   acts_as_taggable
 
   acts_as_taggable_on :subjects
