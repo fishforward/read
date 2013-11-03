@@ -44,10 +44,10 @@ class Source < ActiveRecord::Base
   	arr = ['div','p','span','a','img','pre','font']
   	arr.each do |tag|
 	  	html.css(tag).each do |h|
-	  		h[:style]=""
-        h[:href]="javascript:void(0);"
-        h[:class]=""
-        h[:target]=""
+	  		h[:style]="" if !h[:style].blank?
+        h[:href]="javascript:void(0);" if !h[:href].blank?
+        h[:class]=""  if !h[:class].blank?
+        h[:target]=""  if !h[:target].blank?
 	  	end
   	end
   	return html.css("body").to_s
