@@ -17,6 +17,7 @@
 		<div class="blog">
 			<div class="span8 blog-content">   
 
+				<!--
 				<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
 					<% if notice %>
 						<button type="button" class="close" data-dismiss="alert">×</button>
@@ -41,20 +42,61 @@
 						</div>
 					</div>
 
-				<!--
-				  <% if devise_mapping.rememberable? -%>
-				    <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
-				  <% end -%>
-				-->
-
 				  <div style="margin-left:30px;"><%= f.submit "提交" %></div>
 				<% end %>
+				-->
 
-				<div class="qq_account_log" id="qq_account_log">
-				    <a class="login_btn login_btn02" id="login_btn" href="javascript:;">
-				    </a>
-				    <div class="logout_btn" id="logout_btn"></div>
-				</div>
+				<%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => "form-horizontal"}) do |f| %>
+
+					<fieldset>
+						
+						<% if notice %>
+							<button type="button" class="close" data-dismiss="alert">×</button>
+							<p class="alert"><%=notice%></p>
+						<% end %>
+						<% if alert %>
+							<button type="button" class="close" data-dismiss="alert">×</button>
+							<p class="alert alert-error"><%=alert%></p>
+						<% end %>
+
+						<div class=control-group>
+							<label class="control-label" for="input01">邮箱</label>
+							<div class="controls">
+								<%= f.email_field :email %>
+							</div>
+						</div>
+						<div class=control-group>
+							<label class="control-label" for="input02">密码</label>
+							<div class="controls">
+								 <%= f.password_field :password %>
+							</div>
+						</div>
+						<div class=control-group>
+							<div class="controls">
+								<% if devise_mapping.rememberable? -%>
+									<div><%= f.check_box :remember_me %> 记住我
+								<% end -%>
+							</div>
+						</div>
+
+					    <div class=control-group>
+					    	<br>
+					    	<div class="controls">
+								<%= f.submit "登录",:class=>"btn btn-primary" %>
+								
+								<%= render "devise/shared/links" %>
+							</div>
+						</div>
+
+						<div class=control-group>
+					    	<div class="controls">
+					    		<!--<%= link_to image_tag("weibo-loginbtn_03.png"), '/users/auth/weibo' %>-->
+					    		<%= link_to image_tag("qq_Connect_logo_3.png"), '/users/auth/qq_connect' %>
+							</div>
+						</div>
+					</fieldset>
+
+				<% end %>
 
 			</div>
 		</div>

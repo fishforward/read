@@ -1,0 +1,19 @@
+common: &common
+  weibo:
+    api_key: "1882389022"
+    api_secret: "1dcf2faeabab6b566ac2e624c20d8743"
+    redirect_uri: "http://www.niandu.us/users/auth/weibo/callback"
+
+  qq_connect:
+    api_key: "100347474"
+    api_secret: "8ffb5526771cfdd0344deed420ea1552"
+    redirect_uri: "http://www.niandu.us/users/auth/qq_connect/callback"
+
+production:
+  <<: *common
+
+development:
+  <<: *common
+
+test:
+  <<: *common

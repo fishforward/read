@@ -1,10 +1,15 @@
 Weixintui::Application.routes.draw do
   resources :sites
 
-  devise_for :users
+  resources :authentications
 
   devise_for :users do
     get '/users/sign_out'=>'devise/sessions#destroy'
+  end
+  devise_for :users, :controllers => { :omniauth_callbacks => "authentications", :registrations => "read_registrations" } do
+    get '/users/sign_out' => 'devise/sessions#destroy'
+    get '/users/sign_in' => 'devise/sessions#new'
+    #post '/users' => 'taicii_registrations#create'
   end
 
   resources :sources

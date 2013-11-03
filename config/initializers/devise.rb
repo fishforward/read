@@ -1,6 +1,16 @@
+SERVICES = YAML.load_file(Rails.root.join("config", "services.yml")).fetch(Rails.env)
+
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
+
+  # ==> OmniAuth
+  # Add a new OmniAuth provider. Check the wiki for more information on setting
+  # up on your models and hooks.
+  config.omniauth :weibo, SERVICES['weibo']['api_key'], SERVICES['weibo']['api_secret']
+  config.omniauth :qq_connect, SERVICES['qq_connect']['api_key'], SERVICES['qq_connect']['api_secret']
+
+
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class with default "from" parameter.
