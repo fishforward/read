@@ -9,6 +9,11 @@ common: &common
     api_secret: "b13d1d1e92e13ca52fc0de328edbb959"
     redirect_uri: "http://112.124.47.39/users/auth/qq_connect/callback"
 
+  tqq_connect:
+    api_key: "801438532"
+    api_secret: "b13d1d1e92e13ca52fc0de328edbb959"
+    redirect_uri: "http://112.124.47.39/users/auth/qq_connect/callback"
+
 production:
   <<: *common
 

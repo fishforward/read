@@ -8,6 +8,11 @@ class AuthenticationsController < Devise::OmniauthCallbacksController
     puts '========in============'
     omniauth_process
   end
+
+  def tqq_connect
+    puts '========in2============'
+    omniauth_process
+  end
   
   protected
   def omniauth_process

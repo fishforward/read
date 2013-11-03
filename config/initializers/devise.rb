@@ -9,6 +9,7 @@ Devise.setup do |config|
   # up on your models and hooks.
   config.omniauth :weibo, SERVICES['weibo']['api_key'], SERVICES['weibo']['api_secret']
   config.omniauth :qq_connect, SERVICES['qq_connect']['api_key'], SERVICES['qq_connect']['api_secret']
+  config.omniauth :tqq_connect, SERVICES['tqq_connect']['api_key'], SERVICES['tqq_connect']['api_secret']
 
 
   # ==> Mailer Configuration
