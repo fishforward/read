@@ -8,13 +8,13 @@ gem 'rails', '3.2.3.rc2'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 group :development, :test do
-  gem 'sqlite3'
+  #gem 'sqlite3'
   #gem 'pg'
 end
 
 group :production do
 #  开发环境注释掉
-  #gem 'mysql2'
+  gem 'mysql2'
 end
 
 #monitor
