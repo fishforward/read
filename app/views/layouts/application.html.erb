@@ -129,8 +129,6 @@
 
 	<!-- start: script -->
 	<%= javascript_include_tag "modernizr.js","jquery.min.js","bootstrap.min.js","jquery.ptags.js","jquery.superfish.min.js","jquery.supersubs.min.js","main.js" %>
-	  <script src="http://mat1.gtimg.com/app/openjs/openjs.js"></script>
-
 
 	<!-- ,"jquery.themepunch.revolution.min.js","jquery.themepunch.plugins.min.js","jquery.isotope.js","jquery.fancybox.pack.js","jquery.fancybox-media.js", "plugins.js" ,"main.js" -->
 
@@ -224,55 +222,6 @@
 		});
 	})
 	</script>	
-
-	<script defer="defer">
-		  var login_btn = document.getElementById("login_btn"),
-		  logout_btn = document.getElementById("logout_btn");
-		  function login(){
-		  T.login(function(loginStatus){
-		  getUserInfo();
-		  login_btn.style.display = "none"
-		  logout_btn.style.display = "inline-block";
-		  },function(loginError){
-		  alert(loginError.message);
-		  });
-		  }
-		  function logout(){
-		  logout_btn.style.display = "none";
-		  login_btn.style.display = "inline-block";
-		  T.logout();
-		  }
-		  function getUserInfo(){
-		  T.api("/user/info")
-		  .success(function(response){
-		  if(response.ret === 0){
-		  var html="",imgsrc="",data=response.data;
-		  html = '<a class="head_img" href="http://t.qq.com/'+ data.name +'" target="_blank"><img src="'+ imgsrc +'" /></a><span class="logout_right"><a class="nick_text" href="http://t.qq.com/' + data.name +'" target="_blank" title="'+data.nick +'">'+ data.nick +'</a><a class="logout_text" id="logout_text"　href="javascript:void(0);">退出</a></span>';
-		  logout_btn.innerHTML = html;
-		  var logout_text = document.getElementById("logout_text");
-		  logout_text.onclick = logout;
-		  }else{
-		                alert(response.ret);
-		  }
-		  })
-		  .error(function(code,message){
-		  alert(message);
-		  });
-		  }
-		  function init(){
-		  T.init({appkey:801438527});
-		  if(!T.loginStatus()){
-		  login_btn.style.display = "inline-block";
-		  logout_btn.style.display = "none";
-		  }else{
-		  getUserInfo();
-		  login_btn.style.display = "none";
-		  logout_btn.style.display = "inline-block";
-		  }
-		  login_btn.onclick = login;
-		  }
-		  init();
-  </script>
 
 </body>
 
