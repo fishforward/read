@@ -9,7 +9,7 @@ class AuthenticationsController < Devise::OmniauthCallbacksController
     omniauth_process
   end
 
-  def tqq_connect
+  def tqq
     puts '========in2============'
     omniauth_process
   end

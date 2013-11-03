@@ -31,6 +31,7 @@ gem 'bootstrap-will_paginate'
 gem 'devise', '2.2.1'
 gem 'omniauth-weibo-oauth2', '~> 0.2.0'
 gem 'omniauth-qq-connect'
+gem 'omniauth-qq'
 
 # Gems used only for assets and not required
 # in production environments by default.

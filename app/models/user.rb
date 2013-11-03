@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
-         :omniauthable, omniauth_providers: [:weibo,:qq_connect,:tqq_connect]
+         :omniauthable, omniauth_providers: [:weibo,:qq_connect,:tqq]
 
 
   # Setup accessible (or protected) attributes for your model
