@@ -18,6 +18,6 @@
 # end
 
 # Learn more: http://github.com/javan/whenever
-every 100.minutes do
+every :day, :at => '08:02am' do
     rake "scheduler_feed:feed_rss"
 end
