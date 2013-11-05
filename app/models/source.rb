@@ -32,8 +32,18 @@ class Source < ActiveRecord::Base
   	source.status = 'W'
   	source.save
 
-    source.content,source.pic_url = Source.upload(source)
-    source.save
+    begin
+      source.content,source.pic_url = Source.upload(source)
+      source.save
+    rescue StandardError => e
+
+      puts "===== EXCEPTION ===image upload=="+e.inspect
+
+      ## 删除垃圾数据
+      Pic.delete_by_post_id(source.id)
+      source.destory
+      source = nil
+    end 
 
   	return source
   end

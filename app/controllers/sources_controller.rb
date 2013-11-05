@@ -47,12 +47,12 @@ class SourcesController < ApplicationController
     @post.title = params[:source][:title]
     @post.content = params[:source][:content]
     @post.text_content = ActionController::Base.helpers.strip_tags(@post.content)#.gsub(/ */,"")
-    @post.pic_url = @source.pic_url
+    @post.pic_url = params[:source][:pic_url]
     @post.post_url = @source.post_url
     @post.status = 'Y'  ## 审核通过
 
-    puts @post.content
-    puts @post.text_content
+    #puts @post.content
+    #puts @post.text_content
 
     #tags
     tags = params[:tags]
@@ -183,13 +183,7 @@ class SourcesController < ApplicationController
     @source = Source.find(params[:id])
     @source.destroy
 
-    @pics = Pic.find_all_by_post_id(params[:id])
-    @pics.each do |pic|
-      pic.destroy
-
-      link = pic.link.sub("!middle",'').sub(FILE_PATH_PRE,'')
-      UpYun.new().delete(link)
-    end
+    Pic.delete_by_post_id(params[:id])
 
     respond_to do |format|
       format.html { redirect_to '/wait_audit' }

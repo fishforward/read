@@ -50,13 +50,11 @@
     </p>
     <p class=" entry-content">
       <span class="span1">阅读</span>
-      <!--<%= f.text_area :content, :cols => 200, :rows => 100 %>-->
         <%= raw @source.content %>
     </p>
 
     <p class="field">
       <span class="span1">正文</span><br>
-      <!--<%= f.text_area :content, :cols => 200, :rows => 100 %>-->
       <textarea id="source_content" name="source[content]" rows="300" style="height:500px;">
         <%= @source.content %>
       </textarea>

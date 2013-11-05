@@ -12,4 +12,15 @@ class Pic < ActiveRecord::Base
   	pic.save
   end
 
+
+  def self.delete_by_post_id
+    pics = Pic.find_all_by_post_id(params[:id])
+    pics.each do |pic|
+      pic.destroy
+
+      link = pic.link.sub("!middle",'').sub(FILE_PATH_PRE,'')
+      UpYun.new().delete(link)
+    end
+  end
+
 end

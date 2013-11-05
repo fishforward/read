@@ -47,7 +47,7 @@ class Site < ActiveRecord::Base
 
           source = Source.create_wait_audit_source(site, item, retMap["content"])
           puts source.title + "--" + source.post_url
-          if last_pub_date == nil || pubDate > last_pub_date
+          if source && (last_pub_date == nil || pubDate > last_pub_date)
              last_pub_date = pubDate 
           end
       end
@@ -57,7 +57,7 @@ class Site < ActiveRecord::Base
       puts "===== EXCEPTION ====="+e.inspect
     end 
 
-    if last_pub_date
+    if last_pub_date && !last_pub_date.blank?
       site.last_pub_date = last_pub_date
       site.save
     end

@@ -65,7 +65,7 @@ ActiveRecord::Schema.define(:version => 20131121141155) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "posts", :force => true do |t|
+  create_table "posts", :force => false do |t|
     t.integer  "site_id"
     t.string   "site_name"
     t.integer  "author_id"
@@ -90,12 +90,12 @@ ActiveRecord::Schema.define(:version => 20131121141155) do
   add_index "posts", ["id"], :name => "index_posts_on_id"
   add_index "posts", ["status"], :name => "index_posts_on_status"
 
-  create_table "posts_users", :force => true do |t|
+  create_table "posts_users", :force => false do |t|
     t.integer "post_id", :null => false
     t.integer "user_id", :null => false
   end
 
-  create_table "sites", :force => true do |t|
+  create_table "sites", :force => false do |t|
     t.string   "name"
     t.string   "status"
     t.string   "url"
@@ -158,7 +158,7 @@ ActiveRecord::Schema.define(:version => 20131121141155) do
     t.string "name"
   end
 
-  create_table "users", :force => true do |t|
+  create_table "users", :force => false do |t|
     t.string   "email",                  :default => "", :null => false
     t.string   "encrypted_password",     :default => "", :null => false
     t.string   "reset_password_token"
