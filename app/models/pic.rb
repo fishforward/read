@@ -13,8 +13,8 @@ class Pic < ActiveRecord::Base
   end
 
 
-  def self.delete_by_post_id
-    pics = Pic.find_all_by_post_id(params[:id])
+  def self.delete_by_post_id(post_id)
+    pics = Pic.find_all_by_post_id(post_id)
     pics.each do |pic|
       pic.destroy
 
