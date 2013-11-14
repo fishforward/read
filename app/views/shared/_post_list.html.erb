@@ -4,11 +4,13 @@
 
     	<% if @posts && @posts.size > 0 %>
 			<% @posts.each do |post| %>
-			<div class="row">
+			<div class="row" id=<%= post.id%>>
 				<div class="span8 offset2">
 					<div class="team-name">
 	                    <!--<h2>Susan Rakkhita</h2>-->
-	                    <h2><a href= <%= "/posts/"+post.id.to_s %> TARGET="_blank"><%= post.title %></a></h2>
+	                    <h2><a href= <%= "/posts/"+post.id.to_s %> TARGET="_blank" >
+	                    	<%= post.title %></a>
+	                    </h2>
 	                    <!--<h3>Founder</h3>-->
 	                    <h3><!--<a href=<%= "/authors/"+post.author_id.to_s %>>-->
 	                    	<%= post.author_name %>
@@ -22,14 +24,14 @@
 	                
 	                <div class="team-description">
 
+	                    <div class="t_str" style="display:none;"><%=raw post.content %></div>
 					   	<div class="text_str">
 					   		<%= raw post.text_content %>
-					   		<a href= <%= "/posts/"+post.id.to_s %> TARGET="_blank"><i class="font-icon-read-more"></i><i class="font-icon-read-more"></i></a>
+					   		<a href= <%= "/posts/"+post.id.to_s %> TARGET="_blank"><!--<i class="font-icon-read-more"></i><i class="font-icon-read-more"></i>--></a>
 					   	</div>
-<!--
+
 		               	<a class='showall' href='javascript:void(0)'> 显示全部</a>
-		               	<a class='hideall' href='javascript:void(0)' style="display:none;"> 收起</a>
-		               -->
+		               	<a name=<%= post.id%> class='hideall' href='javascript:void(0)' style="display:none;"> 收起</a>
 	                    
 	                </div>
 	                <div class="team-social">
@@ -57,7 +59,7 @@
 	            </div>
 
 	            <% if post.pic_url && !post.pic_url.blank? %>
-	            <div class="span2">
+	            <div class="span2 post_imgage">
 	                <div class="team-img">
 	                    <!--<img src="_include/img/people/single-large.jpg" alt="Person">-->
 	                    <a href=<%= '#big-img-'+post.id.to_s %> data-toggle="modal" class="picture">

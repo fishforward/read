@@ -58,6 +58,9 @@ class Source < ActiveRecord::Base
         h[:href]="javascript:void(0);" if !h[:href].blank?
         h[:class]=""  if !h[:class].blank?
         h[:target]=""  if !h[:target].blank?
+
+        h[:width]=''  if !h[:width].blank?
+        h[:height]=""  if !h[:height].blank?
 	  	end
   	end
   	return html.css("body").to_s

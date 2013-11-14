@@ -1283,9 +1283,9 @@ nav#menu #menu-nav li.sfHover ul a:hover {
 }
 
 .project-navigation {
-	border-top: 1px solid #F1F1F1;
-    margin: 70px 0 0;
-    padding-top: 60px;
+	border-top: 0px solid #F1F1F1;
+    margin: 10px 0 0;
+    padding-top: 10px;
     text-align: center;
 }
 
@@ -1854,12 +1854,16 @@ nav#menu #menu-nav li.sfHover ul a:hover {
 }
 
 .single-post .entry-content img{
-	width: 50% !important;
-	height: 50% !important;	
+	width: 60% !important;
+	height: 60% !important;	
 	
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
 	border-radius: 4px;
+
+	clear: both;
+	display: block;
+	margin:auto;
 }
 
 .single-post .entry-meta {

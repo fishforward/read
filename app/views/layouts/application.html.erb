@@ -173,14 +173,26 @@
 			$(".showall").click(function(){
 				$(this).prev().prev().show()
 				$(this).prev().hide()
+
+				$(this).parent().parent().attr("class","span8 offset2")
+				$(this).parent().parent().parent().find(".post_imgage").hide()
+
 				$(this).hide()
 				$(this).next().show();
 			});
 			$(".hideall").click(function(){
 				$(this).prev().prev().prev().hide()
 				$(this).prev().prev().show()
+
+				$(this).parent().parent().attr("class","span6 offset2")
+				$(this).parent().parent().parent().find(".post_imgage").show()
+
 				$(this).prev().show()
 				$(this).hide();
+
+				id = $(this).attr("name")
+				$("html,body").animate({scrollTop: $("#"+id).offset().top}, 1);
+
 			});
 
 			//showandhide(".text_str","500");

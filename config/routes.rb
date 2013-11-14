@@ -19,7 +19,7 @@ Weixintui::Application.routes.draw do
   match 'show_audit/:id' => 'sources#show_audit'
 
   match 'fetchweixin/:id' => 'home#fetch' 
-  match 'fetchbyurl' => 'home#index'
+  match 'home' => 'home#index'
 
   match 'about' => 'home#about'
 
