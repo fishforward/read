@@ -7,12 +7,12 @@
 				
 <div id="content">
     <!-- Start Section Single Team People -->
-    <section id="single-team" class="container">
+    <section id="single-team-mobile" class="container">
 
     	<% if @posts && @posts.size > 0 %>
 			<% @posts.each do |post| %>
 			<div class="row" id=<%= post.id%>>
-				<div <% if post.pic_url && !post.pic_url.blank? %> class="span11" <%else%> class="span12" <%end%>>
+				<div <% if post.pic_url && !post.pic_url.blank? %> class="span10" <%else%> class="span12" <%end%>>
 					<div class="team-name">
 	                    <!--<h2>Susan Rakkhita</h2>-->
 	                    <h2><a href= <%= "/posts/"+post.id.to_s %> TARGET="_blank" >
@@ -47,7 +47,7 @@
 	            </div>
 
 	            <% if post.pic_url && !post.pic_url.blank? %>
-	            <div class="span1 post_imgage">
+	            <div class="span2 post_imgage">
 	                <div class="team-img">
 	                    <!--<img src="_include/img/people/single-large.jpg" alt="Person">-->
 	                    <a href=<%= '#big-img-'+post.id.to_s %> data-toggle="modal" class="picture">

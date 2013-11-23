@@ -1135,6 +1135,89 @@ nav#menu #menu-nav li.sfHover ul a:hover {
 	margin: 80px 0 20px 0;	
 }
 
+/*   ----------
+ Single Team Page 
+   ----------    */
+#single-team-mobile{
+	margin-top: -10px;
+}
+
+#single-team-mobile .team-img {
+	margin-bottom: 0px;	
+}
+
+#single-team-mobile .team-img img {
+	margin-top: 0px;
+	width: 100%;
+}
+
+#single-team-mobile .team-social ul {
+	margin: -10px;
+	padding: 0px 10px 0 10px;
+	
+	border-top: 1px solid #F5F5F5;
+}
+
+#single-team-mobile .team-social ul li {
+	list-style: none;
+	display: inline-block;
+	margin: 0 20px 0 0;	
+}
+
+#single-team-mobile .team-social ul li a {
+	display: block;
+}
+
+#single-team-mobile .team-social ul li a i {
+	font-size: 16px;
+	color: #D0DBE2;
+	
+	-webkit-transition: color 0.15s ease-in-out 0s;	
+	   -moz-transition: color 0.15s ease-in-out 0s;
+		 -o-transition: color 0.15s ease-in-out 0s;
+		    transition: color 0.15s ease-in-out 0s;
+}
+
+#single-team-mobile .team-social .post_unlove {
+	font-size: 16px;
+	color: #F97E76;
+	
+	-webkit-transition: color 0.15s ease-in-out 0s;	
+	   -moz-transition: color 0.15s ease-in-out 0s;
+		 -o-transition: color 0.15s ease-in-out 0s;
+		    transition: color 0.15s ease-in-out 0s;
+}
+
+#single-team-mobile .team-social ul li a:hover i {
+	color: #F97E76;
+}
+
+#single-team-mobile .team-name{
+	margin-bottom: -10px;
+}
+
+#single-team-mobile .team-name h2 {
+	font-size: 20px;
+	font-weight: 500;
+	margin-bottom: 0px;
+}
+
+#single-team-mobile .team-name h3 {
+	font-size: 12px;
+	font-weight: 200;
+	/*margin-bottom: 7px; */
+
+}
+#single-team-mobile .team-name h4 {
+	font-size: 12px;
+	font-weight: 400;
+}
+
+#single-team-mobile .paginate-team {
+	text-align: center;
+	margin: 20px 0 20px 0;	
+}
+
 
 /* ==================================================
    Portfolio
