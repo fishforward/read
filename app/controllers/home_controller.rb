@@ -5,15 +5,9 @@ require "utils/upyun"
 
 class HomeController < ApplicationController
 
-  before_filter :authenticate_user!, :except => [:about, :home, :m]
-  before_filter :check_admin_user, :except => [:about, :home, :m]
 
   def index
     
-  end
-
-  def fetch
-    Post.fetch(params[:id])
   end
 
   def about
