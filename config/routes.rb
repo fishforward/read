@@ -20,7 +20,7 @@ Weixintui::Application.routes.draw do
 
   match 'fetchweixin/:id' => 'home#fetch' 
   match 'home' => 'home#index'
-
+  match 'm' => 'home#m'
   match 'about' => 'home#about'
 
   match 'subject/:name' => 'tag#subject'

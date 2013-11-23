@@ -26,6 +26,24 @@ class Post < ActiveRecord::Base
     return posts
   end
 
+  def self.get_loved_ids(posts, user)
+    post_ids = nil  # 当前页love的列表
+    love_post_ids = []  # 所有love的列表
+    if user
+      post_ids = []
+      love_posts = user.posts
+
+      love_posts.each do |post|  love_post_ids << post.id end
+
+      posts.each do |p_post|
+        if love_post_ids.include?(p_post.id)
+          post_ids << p_post.id
+        end
+      end
+    end
+    return post_ids
+  end
+
 
   def self.fetch(id)
 

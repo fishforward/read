@@ -24,6 +24,16 @@
 	header {
 		position: relative;	
 	}
+
+	#single-team .span1 {
+		width: 10%;	
+		float: left;
+	}
+
+	#single-team .span11{
+		width: 88%;
+		float: left;
+	}
 	
 	#title-page,
 	#slider,
@@ -223,6 +233,16 @@
 	
 	header {
 		position: relative;	
+	}
+
+	#single-team .span1 {
+		width: 11%;	
+		float: left;
+	}
+
+	#single-team .span11{
+		width: 87%;
+		float: left;
 	}
 	
 	#title-page,
@@ -426,6 +446,16 @@
 	
 	header {
 		position: relative;	
+	}
+
+	#single-team .span1 {
+		width: 12%;	
+		float: left;
+	}
+
+	#single-team .span11{
+		width: 86%;
+		float: left;
 	}
 	
 	#title-page,
@@ -675,6 +705,16 @@
 }
 
 @media (max-width: 320px) {
+
+	#single-team .span1 {
+		width: 13%;	
+		float: left;
+	}
+
+	#single-team .span11{
+		width: 85%;
+		float: left;
+	}
 
 	#mobile-nav {
 		margin-right: 30px;
