@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
 
-  before_filter :authenticate_user!, :except => [:index, :show]
-  before_filter :check_admin_user, :except => [:index, :show]
+  before_filter :authenticate_user!, :except => [:index, :show, :show_m]
+  before_filter :check_admin_user, :except => [:index, :show, :show_m]
 
 
   delegate "strip_tags", :to => "ActionController::Base.helpers"
