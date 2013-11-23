@@ -20,7 +20,6 @@ Weixintui::Application.routes.draw do
 
   match 'fetchweixin/:id' => 'home#fetch' 
   match 'home' => 'home#index'
-  match 'm' => 'home#m'
   match 'about' => 'home#about'
 
   match 'subject/:name' => 'tag#subject'
@@ -32,6 +31,12 @@ Weixintui::Application.routes.draw do
   match '/sources/audit/:id' => 'sources#audit'
 
   match 'love' => 'love#create_post'
+
+  ## mobile
+  match 'm' => 'home#m'
+  match 'subject_m/:name' => 'tag#subject_m'
+  match 'tag_m/:name' => 'tag#show_m'
+  match 'posts/show_m/:id' => 'posts#show_m'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

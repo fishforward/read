@@ -1,0 +1,41 @@
+<% if @name =='一座城' %>
+    <!-- Start Accordion -->
+    <div class="accordion" id="accordionArea">
+        <div class="accordion-group">
+            <div class="accordion-heading accordionize">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordionArea" href="#oneArea">
+                    <u>一座城地图</u>
+                    <span class="font-icon-arrow-simple-down"></span>
+                </a>
+            </div>
+            <div id="oneArea" class="accordion-body collapse">
+                <div class="accordion-inner">
+                    <div>
+                        <iframe src="http://mapsengine.google.com/map/embed?mid=zdQ_4slX_kLM.kZ8bLFbQ8ZRw" width="100%" height="400"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Accordion -->
+<% else %>
+
+    <!-- Start Section Title -->
+    <section id="title-page">
+        <!--
+        <div class="row" style="padding-top:10px; margin-left:37%;">
+            <a class=<% if @name=='美文慢读'%>"span1 show-grid activity"<%else%>"span1 show-grid"<%end%> href="/subject/美文慢读"> 美文慢读</a>
+            <a class=<% if @name=='生活感悟'%>"span1 show-grid activity"<%else%>"span1 show-grid"<%end%> href="/subject/生活感悟"> 生活感悟</a>
+
+            <a class=<% if @name=='一座城'%>"span1 show-grid activity"<%else%>"span1 show-grid"<%end%> href="/subject/一座城"> 一座城</a>
+
+        </div>
+        <span class="arrow"></span>
+        -->
+        <h2><%= @name %></h2>
+        <span class="arrow"></span>
+    </section>
+    <!-- End Section Ttile -->  
+<% end %>
+
+<%= render :partial => 'shared/post_list_m' , :locals => { :posts => @posts } %>

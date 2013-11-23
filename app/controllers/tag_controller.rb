@@ -41,4 +41,30 @@ class TagController < ApplicationController
 
   end
 
+  ## mobile
+
+  def subject_m
+
+    @name = params[:name]
+    @posts = Post.tagged_with(@name).paginate(:page => params[:page], :per_page => 20, :order => "post_url desc" )
+    @posts= Post.short_cut(@posts)
+
+    respond_to do |format|
+      format.html # index.html.erb
+      #format.json { render json: @posts }
+    end
+  end
+
+  def show_m
+    @name = params[:name]
+    @posts = Post.tagged_with(@name).paginate(:page => params[:page], :per_page => 20, :order => "post_url desc" )
+    @posts= Post.short_cut(@posts)
+
+    respond_to do |format|
+      format.html # index.html.erb
+      #format.json { render json: @posts }
+    end
+
+  end
+
 end

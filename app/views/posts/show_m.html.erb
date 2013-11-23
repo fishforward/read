@@ -1,0 +1,157 @@
+<!-- Start Intro Box -->
+<section id="intro-box" class="single-post">
+  <div class="container">
+      <div class="row">
+          <div class="span12">
+              <h2 class="entry-title">
+                <%= @post.title %>
+              </h2>
+                
+                <div class="entry-meta">
+                    <% if @post.author_name && !@post.author_name.blank? %>
+                      <span class="author"><%= @post.author_name %></span>
+                      <span class="divider">/</span>
+                    <% end %>
+                    <!--<span class="published"><%= @post.post_date %></span>
+                    <span class="divider">/</span>-->
+                    <span class="read_num"><% if @post.pv %> 阅读(<%= @post.pv/2 %>)<% end %></span>
+                </div>
+                <span class="arrow"></span>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Intro Box -->
+
+<div id="content">
+    <!-- Start Blog Single Page -->
+    <section id="blog" class="container single-post">
+      <div class="row">
+        
+          <div class="span8 offset2">   
+            <!-- Start Post --> 
+            <article class="post">
+            <!--
+              <div class="post-thumb">
+                <% if @post.pic_url %>
+                <%= image_tag(@post.pic_url+"!middle") %>
+                <% end %>
+              </div>
+            -->
+              <div class="entry-content">
+                  <p><%=raw @post.content %></p>
+                 
+              </div>
+              
+              <div id="link_tag" class="entry-meta entry-footer">
+                <span class="entry-categories">
+                  <a href=<%= @post.post_url %>> 阅读原文</a>
+                </span>
+
+                <span class="entry-tags">
+                  <span class="divider">|</span>
+                  标签:
+                  <% @post.tags.each do |tag|%>
+                      <a href="<%="/tag_m/"+tag.name %>"><%= tag.name %></a>
+                      <span class="divider">|</span>
+                  <% end %>
+                  <span class="published"><%= @post.post_date %></span>
+                  
+                </span>
+              </div>
+
+              <!-- Start Navigation -->
+              <div class="row">
+                <div class="span8">
+                  <div class="project-navigation">
+                          
+                      <a class="prev-btn pull-left" href="#">
+                        <i class="font-icon-arrow-simple-left"></i>Previous Project
+                      </a>
+                      
+                      <a class="right-btn pull-right" href="#">
+                        <i class="font-icon-arrow-simple-right"></i>Next Project
+                      </a>
+                  </div>
+                </div>
+              </div>
+              <!-- End Navigation -->
+              
+              <div id="comment_separator" class="separator"></div>
+            </article>
+
+
+            <!-- End Post -->
+              
+
+              <!-- Start Comments -->
+              <!--
+              <div id="comments">
+                <h3 class="comments-title">评论</h3>
+                 
+                  <div class="comments span7 clearfix">
+                    <div id="uyan_frame"></div>
+                    <script type="text/javascript" id="UYScript" src="http://v1.uyan.cc/js/iframe.js?UYUserId=2710" async=""></script>
+                  </div>
+                  
+              </div>
+              -->
+              <!-- End Comments -->
+
+          </div>
+      
+          <!-- Start Sidebar -->
+          <!--
+          <div class="span3">
+            <aside id="sidebar">
+              
+                <div id="search" class="widget widget-search">
+                  <form method="get" id="searchform" action="#">
+                    <input type="text" placeholder="To search type and hit enter..." value="" />
+                  </form>
+                </div>
+
+                <div class="widget widget-ads">
+                  <a href="#" class="link-img">
+                    <img src="http://placehold.it/250x250" alt="Ads Img" />
+                  </a>
+                    
+                  <div class="ads-text">
+                      <a href="#">Your Advertisement Text</a>
+                  </div>  
+                    
+                  <div class="ads-pow">
+                    <a href="#">Powered by Company</a>
+                  </div>
+                </div>
+                    
+                <div class="widget widget-twitter">
+                  <h3 class="widget-title">Twitter Widget</h3>
+                  <div class="twitter-list" data-count="3"></div>
+                  <a class="twitter-link" href="http://twitter.com/bluxart">Follow @bluxart on Twitter</a>
+                </div>
+                
+                <div class="widget widget-flickr">
+                  <h3 class="widget-title">Flickr Widget</h3>
+                    <div class="flickr-list" data-count="12"></div> 
+                </div>
+                
+                <div class="widget widget-social">
+                  <h3 class="widget-title">Social Widget</h3>
+                    <ul>
+                      <li><a href="#"><i class="font-icon-social-500px"></i></a></li>
+                        <li><a href="#"><i class="font-icon-social-addthis"></i></a></li>
+                        <li><a href="#"><i class="font-icon-social-behance"></i></a></li>
+                    </ul>
+                </div>
+                    
+            </aside>
+          </div>
+          -->
+          <!-- End Sidebar -->
+            
+      </div>
+    </section>
+    <!-- End Blog Single Page -->
+
+</div>

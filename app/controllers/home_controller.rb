@@ -5,8 +5,8 @@ require "utils/upyun"
 
 class HomeController < ApplicationController
 
-  before_filter :authenticate_user!, :except => [:about, :home]
-  before_filter :check_admin_user, :except => [:about, :home]
+  before_filter :authenticate_user!, :except => [:about, :m]
+  before_filter :check_admin_user, :except => [:about, :m]
 
   def index
     
