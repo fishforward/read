@@ -23,6 +23,8 @@ class TagController < ApplicationController
     @posts = Post.tagged_with(@name).paginate(:page => params[:page], :per_page => 20, :order => "post_url desc" )
     @posts= Post.short_cut(@posts)
 
+    @post_ids = Post.get_loved_ids(@posts, current_user)
+
     respond_to do |format|
       format.html # index.html.erb
       #format.json { render json: @posts }
@@ -48,6 +50,8 @@ class TagController < ApplicationController
     @name = params[:name]
     @posts = Post.tagged_with(@name).paginate(:page => params[:page], :per_page => 20, :order => "post_url desc" )
     @posts= Post.short_cut(@posts)
+
+    @post_ids = Post.get_loved_ids(@posts, current_user)
 
     respond_to do |format|
       format.html # index.html.erb
