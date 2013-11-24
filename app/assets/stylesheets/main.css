@@ -1153,11 +1153,14 @@ nav#menu #menu-nav li.sfHover ul a:hover {
 
 #single-team-mobile .team-img {
 	margin-bottom: 0px;	
+	border:none;
 }
 
 #single-team-mobile .team-img img {
 	margin-top: 0px;
 	width: 100%;
+
+	border:none;
 }
 
 #single-team-mobile .team-social ul {

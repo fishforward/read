@@ -24,20 +24,18 @@
 	                
 	                <div class="team-description">
 
-	                    <div class="t_str" style="display:none;"><%=raw post.content %></div>
+	                    <!--<div class="t_str" style="display:none;"><%=raw post.content %></div>-->
 					   	<div class="text_str">
 					   		<%= raw post.text_content %>
-					   		<a href= <%= "/posts/"+post.id.to_s %> TARGET="_blank"><!--<i class="font-icon-read-more"></i><i class="font-icon-read-more"></i>--></a>
+					   		<a href= <%= "/posts/"+post.id.to_s %> TARGET="_blank"><i class="font-icon-read-more"></i><i class="font-icon-read-more"></i></a>
 					   	</div>
 
-		               	<a class='showall' href='javascript:void(0)'> 显示全部</a>
-		               	<a name=<%= post.id%> class='hideall' href='javascript:void(0)' style="display:none;"> 收起</a>
+		               	<!--<a class='showall' href='javascript:void(0)'> 显示全部</a>
+		               	<a name=<%= post.id%> class='hideall' href='javascript:void(0)' style="display:none;"> 收起</a>-->
 	                    
 	                </div>
 	                <div class="team-social">
 	                    <ul>
-	                        <!--<li><a href="#"><i class="font-icon-heart-line"></i></a></li>
-	                        <li><a href="#"><i class="font-icon-heart"></i></a></li>-->
 	                        <li>
 	                        	<a href=<%= "/posts/"+post.id.to_s %>>
 	                        		<i class="font-icon-eye"><% if post.pv %> <span><%=post.pv/2%></span> <% end %></i>
@@ -61,7 +59,6 @@
 	            <% if post.pic_url && !post.pic_url.blank? %>
 	            <div class="span2 post_imgage">
 	                <div class="team-img">
-	                    <!--<img src="_include/img/people/single-large.jpg" alt="Person">-->
 	                    <a href=<%= '#big-img-'+post.id.to_s %> data-toggle="modal" class="picture">
 							<img class="img-polaroid" alt="content" src=<%= post.pic_url+"!small"%>>
 						</a>
@@ -108,15 +105,6 @@
 			</div>
 		<% end %>
         
-        <!--
-        <div class="row">
-            <div class="span12">
-            	<div class="paginate-team">
-                	<a href="team.html" class="button-main">Back to Team</a>
-               	</div>
-            </div>
-        </div>
-    	-->
     </section>
     <!-- End Section Single Team People -->
 </div>

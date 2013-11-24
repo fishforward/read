@@ -42,28 +42,10 @@
 	            <% if post.pic_url && !post.pic_url.blank? %>
 	            <div class="span2 post_imgage">
 	                <div class="team-img">
-	                    <!--<img src="_include/img/people/single-large.jpg" alt="Person">-->
-	                    <a href=<%= '#big-img-'+post.id.to_s %> data-toggle="modal" class="picture">
+	                    
 							<img class="img-polaroid" alt="content" src=<%= post.pic_url+"!small"%>>
-						</a>
 	                </div>
 
-	                <!-- open pic 
-	                <div class="modal blog-img-big hide fade in" id=<%="big-img-" + post.id.to_s %> aria-hidden="true">
-						
-						<div class="modal-header">
-							<button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
-							<div style="text-align: center;">插图</div>
-						</div>
-
-						<div class="modal-body">
-							<div class="row-fluid">
-								<div class="span12" align=center>
-									<img class="img-polaroid" alt="content" src=<%= post.pic_url+"!big" %> >
-								</div>
-							</div>
-						</div>
-					</div>-->
 	            </div>
 	            <% end %>
 
@@ -89,15 +71,6 @@
 			</div>
 		<% end %>
         
-        <!--
-        <div class="row">
-            <div class="span12">
-            	<div class="paginate-team">
-                	<a href="team.html" class="button-main">Back to Team</a>
-               	</div>
-            </div>
-        </div>
-    	-->
     </section>
     <!-- End Section Single Team People -->
 </div>

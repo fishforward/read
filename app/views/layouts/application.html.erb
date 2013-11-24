@@ -27,8 +27,8 @@
 	<%= stylesheet_link_tag "bootstrap.min.css","responsive.css","settings.css","main.css","jquery.fancybox.css","fonts.css", "shortcodes.css","custom.css","jquery.ptags.default.css" %>
 	<%= csrf_meta_tag %>
 
-	<!-- Google Font -->
-	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+	<!-- Google Font 
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>-->
 
 	<!-- Fav Icon -->
 	<link rel="shortcut icon" href="#">
@@ -139,8 +139,6 @@
 	<!-- start: script -->
 	<%= javascript_include_tag "modernizr.js","jquery-1.9.1.js","bootstrap.min.js","jquery.ptags.js","jquery.superfish.min.js","jquery.supersubs.min.js","main.js" %>
 
-	<!-- ,"jquery.themepunch.revolution.min.js","jquery.themepunch.plugins.min.js","jquery.isotope.js","jquery.fancybox.pack.js","jquery.fancybox-media.js", "plugins.js" ,"main.js" -->
-
 	<!-- end: script -->
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -153,31 +151,14 @@
 	// 全部显示 - 先不打开
 	$(function(){
 
-		// 延时加载 - 淡入效果
-		/*$("img").lazyload({
-	    	effect       : "fadeIn"
-	 	});*/
-
-		// 图片延时加载
-		/*
-	    $(".blog-info img").lazyload({
-	        //event : "sporty",
-	        effect : "fadeIn"
-	    });
-	    $(".blog-img-big img").lazyload({
-	        //event : "sporty",
-	        effect : "fadeIn"
-	    });
-*/
-
 		jQuery(document).ready(function($) {
-
 
 			// 标签js
 			$("#tags").ptags();
 			$("#subjects").ptags();
 
 			// 显示全部
+			/**
 			$(".showall").click(function(){
 				$(this).prev().prev().show()
 				$(this).prev().hide()
@@ -228,7 +209,7 @@
 						});
 					}
 				});
-			}
+			}**/
 
 			$("#content_rep").click(function() {
 				var re = $("#replaced").val()
