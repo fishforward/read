@@ -1142,6 +1142,15 @@ nav#menu #menu-nav li.sfHover ul a:hover {
 	margin-top: -10px;
 }
 
+#single-team-mobile hr {
+	border-style: solid;
+	border-color: #E6E6E6;
+	border-bottom: none;
+	border-left: none;
+	border-right: none;
+    margin: 5px 0 5px 0;
+}
+
 #single-team-mobile .team-img {
 	margin-bottom: 0px;	
 }
@@ -1152,10 +1161,10 @@ nav#menu #menu-nav li.sfHover ul a:hover {
 }
 
 #single-team-mobile .team-social ul {
-	margin: -10px;
+	margin: -20px 0 0 0;
 	padding: 0px 10px 0 10px;
 	
-	border-top: 1px solid #F5F5F5;
+	border-top: 0px solid #F5F5F5;
 }
 
 #single-team-mobile .team-social ul li {
@@ -1169,7 +1178,7 @@ nav#menu #menu-nav li.sfHover ul a:hover {
 }
 
 #single-team-mobile .team-social ul li a i {
-	font-size: 16px;
+	font-size: 14px;
 	color: #D0DBE2;
 	
 	-webkit-transition: color 0.15s ease-in-out 0s;	
@@ -1179,7 +1188,7 @@ nav#menu #menu-nav li.sfHover ul a:hover {
 }
 
 #single-team-mobile .team-social .post_unlove {
-	font-size: 16px;
+	font-size: 14px;
 	color: #F97E76;
 	
 	-webkit-transition: color 0.15s ease-in-out 0s;	

@@ -51,7 +51,7 @@
 	    	<div class="row">
 	        	<div class="span2 offset1">
 	            	<div id="logo">
-	        			<a href="/" title="SlowerTime">慢时光</a>
+	        			<a class="logo_a" href="/" title="SlowerTime">慢时光</a>
 	        		</div>
 	            </div>
 
@@ -63,10 +63,10 @@
 	        		<nav id="menu">
 	                    <ul id="menu-nav">
 	                    	<li class=<%= 'active' if params[:controller] == 'posts' && params[:action] =='index' %>>
-	                    		<a href="/">首页</a>
+	                    		<a class="home_a" href="/">首页</a>
 	                    	</li>
 	                        <li class=<%= 'active' if params[:controller] == 'tag' && (params[:action] =='subjects' || params[:action] =='subject') %>>
-	                        	<a href="/subjects">主题馆</a>
+	                        	<a href="#">主题馆</a>
 	                        	<ul class="sub-menu">
 	                                <li><a href="/subject/美文">美文</a></li>
 

@@ -45,6 +45,27 @@ ANUBIS.mobileNav = function(){
 			$('#mobile-nav').removeClass('open');	
 		}
 	}
+
+	// href mobile
+	if( windowWidth <= 979 ) {
+		alist = $('#navigation-mobile .sub-menu li a')
+
+		alist.each(function(){
+
+			href = $(this).attr('href')
+			if(href.indexOf("subject_m")<=0 && href.indexOf("subject")>0){
+				$(this).attr("href",href.replace("subject","subject_m"))
+			}
+		});
+
+		$('.logo_a').attr('href','\/m')
+		$('#navigation-mobile .home_a').attr('href','\/m')
+
+	}else{
+		$('.logo_a').attr('href','\/')
+		$('#navigation-mobile .home_a').attr('href','\/')
+	}
+
 }
 
 // Call the Event for Menu 
